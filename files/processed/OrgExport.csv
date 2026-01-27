@@ -1,0 +1,1159 @@
+CompanyId,OrgId,OrgName,ParentId,TreeLevel
+1,13,Sundsvalls kommun,NULL,1
+1,23,Vård och omsorgsförvaltningen,13,2
+1,24,Barn o utbildningsförvaltning,13,2
+1,25,Miljökontoret,13,2
+1,26,Stadsbyggnadskontoret,13,2
+1,27,Lantmäterikontoret,13,2
+1,28,Kommunstyrelsekontoret,13,2
+1,29,Överförmyndarkontoret,13,2
+1,30,Kultur och fritid,13,2
+1,31,Individ och arbetsmarknadsförv,13,2
+1,32,Förtroendevalda,13,2
+1,33,VOF Äldreboende,23,3
+1,36,BOU Grundskola,24,3
+1,38,MK Miljökontoret,25,3
+1,42,LMK Lantmäterikontoret,27,3
+1,46,ÖFK Överförmyndarkontoret,29,3
+1,54,BOU Förskola,24,3
+1,58,KSK Drakfastigheter,28,3
+1,74,BoU Barn o Utbildningskontor,24,3
+1,205,BoU Sundsvalls gymnasium,24,3
+1,385,SBK Stadsbyggnadskontoret,26,3
+1,394,Kommunstyrelsen,32,3
+1,408,KOF Idrott och fritidsavd.,30,3
+1,412,KOF Kultur och museer,30,3
+1,418,KOF Stadsbibliotek,30,3
+1,425,KOF Ungdomsavdelningen,30,3
+1,431,KOF Stab,30,3
+1,440,KSK Avdelningar,28,3
+1,441,KF Politiska sekreterare,32,3
+1,500,IAF Arbete och försörjning,31,3
+1,512,IAF Vuxenutbildningen,31,3
+1,525,KSK Övergripande lönekostnader,28,3
+1,646,Övergripande lönekostnader,32,3
+1,709,SBK Byggavdelning,26,3
+1,710,SBK Planavdelning,26,3
+1,712,SBK Mark och exploateringsavd.,26,3
+1,714,SBK Gatu och Parkavdelning,26,3
+1,1163,Stadsbyggnadsnämnden,32,3
+1,1166,Kultur- och fritidsnämnden,32,3
+1,1169,Barn- och utbildningsnämnden,32,3
+1,1175,Miljönämnden,32,3
+1,1178,Överförmyndarnämnden MITT,32,3
+1,1181,Revision,32,3
+1,1184,Valnämnden,32,3
+1,1187,Lantmäterinämnden,32,3
+1,1190,Förtroendenämnden,32,3
+1,1193,Kommunfullmäktige,32,3
+1,1255,Koncernbolagen,32,3
+1,2849,KSK Servicecenter,28,3
+1,4180,VOF Omsorg om funktionshindr.,23,3
+1,4203,VOF Gemensam administration,23,3
+1,5457,IAF Direktör,31,3
+1,7281,Individ o arbetsmarknadsnämnd,32,3
+1,7382,Vård och omsorgsnämnden,32,3
+1,7403,IAF Missbruk o psykisk ohälsa,31,3
+1,7439,IAF Barn unga och familj,31,3
+1,9326,VOF Myndighet,23,3
+1,9331,VOF Hälso och sjukvård,23,3
+1,9334,VOF Hemtjänst,23,3
+1,500399,BOU Lärande och hälsa,24,3
+1,34,VOF Äldreboende,33,4
+1,37,BOU Grundskola,36,4
+1,39,MK Miljökontoret,38,4
+1,43,LMK Lantmäterikontoret,42,4
+1,47,ÖFK Överförmyndarkontoret,46,4
+1,56,BOU Förskola,54,4
+1,75,BOU Barn och Utb. kontor,74,4
+1,231,VOF Direktör,4203,4
+1,238,VOF Avd. ekonomi o analys,4203,4
+1,386,SBK Stadsbyggnadskontoret,385,4
+1,395,Kommunstyrelsen,394,4
+1,409,KOF IOF Idrott och fritid stab,408,4
+1,419,KOF SBT Stadsbibliotek,418,4
+1,426,KOF UAD Alnö  Ljustadalen,425,4
+1,432,KOF Stab,431,4
+1,437,KOF KOM Kultur och museer,412,4
+1,443,KSK Avd Kommundirektör Stab,440,4
+1,446,KF Koncernstaben Politiska sek,441,4
+1,526,KSK Övergripande lönekostnader,525,4
+1,557,VOF OOF Stöd och omsorg,4180,4
+1,647,Övergripande lönekostnader,646,4
+1,715,SBK Byggavdelning,709,4
+1,716,SBK Planavdelning,710,4
+1,718,SBK MOE Mark och explo.avd,712,4
+1,720,SBK GA Gatu och Parkavdelning,714,4
+1,722,SBK GA Drift Gata,714,4
+1,727,KOF KOM Sundsvalls museum,412,4
+1,728,KOF KOM Friluftsmuseerna,412,4
+1,741,KOF UAD Tornhuset,425,4
+1,745,KOF UAD Ungdomsavdelningen,425,4
+1,800,KSK SC Ekonomi,2849,4
+1,803,KSK SC Lön och pension,2849,4
+1,807,KSK SC Administration,2849,4
+1,808,KSK SC Fordon och Transport,2849,4
+1,856,KSK DF Drakfastigheter Stab,58,4
+1,857,KSK DF Projekt och Specialist,58,4
+1,859,KSK DF Driftsektionen,58,4
+1,1123,IAF AoF Specialister,500,4
+1,1132,IAF VUX Stöd och vägledn. adm.,512,4
+1,1143,KSK DF Städsektionen,58,4
+1,1164,Stadsbyggnadsnämnden,1163,4
+1,1167,Kultur- och fritidsnämnden,1166,4
+1,1170,Barn- och utbildningsnämnden,1169,4
+1,1176,Miljönämnden,1175,4
+1,1179,Överförmyndarnämnden MITT,1178,4
+1,1182,Revision,1181,4
+1,1185,Valnämnden,1184,4
+1,1188,Lantmäterinämnden,1187,4
+1,1191,Förtroendenämnden,1190,4
+1,1194,Kommunfullmäktige,1193,4
+1,1196,KSK Avd HR,440,4
+1,1198,KSK AVD Ekonomi Verksamh.styr.,440,4
+1,1200,KSK AVD Samhällsutv. o. hållba,440,4
+1,1202,KSK Avd Kommunikation,440,4
+1,1240,BoU Sundsvalls Gymnasium,205,4
+1,1256,Koncernbolagen,1255,4
+1,2835,KSK AVD Digitalisering och IT,440,4
+1,2853,KSK SC Verksamhetschef,2849,4
+1,2888,KSK SC Övergripande lönekostn.,2849,4
+1,4157,SBK GA Entreprenadsektion,714,4
+1,4161,KSK SC Mat och Måltider,2849,4
+1,4214,VOF Myndighet,9326,4
+1,4234,KOF KOM Scenservice,412,4
+1,5460,IAF Direktör,5457,4
+1,5534,SBK GA Planering,714,4
+1,7270,Vård och omsorgsnämnden,7382,4
+1,7327,IAF BUF Behandling öppenvård,7439,4
+1,7464,Individ o arbetsmarknadsnämnd,7281,4
+1,8513,KOF SBT Mobil och digital,418,4
+1,8515,KOF SBT Medier och webb,418,4
+1,8516,KOF UAD Nacksta Skönsm. Sköns.,425,4
+1,8519,KOF UAD Bredsand Opalen,425,4
+1,8520,KOF SBT Läsfrämjandet,418,4
+1,8521,KOF UAD Matfors Granloholm,425,4
+1,8547,IAF BUF Familjerätt Familjeråd,7439,4
+1,8558,IAF VUX Gym kurs egen ext Grl,512,4
+1,8561,IAF BUF Nord 1,7439,4
+1,8565,IAF AOF Företagsgrupper,500,4
+1,8568,IAF BUF Plac. barn och unga,7439,4
+1,8571,IAF BUF Syd 1,7439,4
+1,8580,IAF Vux Verksamhetschef,512,4
+1,8582,IAF MoP Verksamhetschef,7403,4
+1,8590,IAF BUF Verksamhetschef,7439,4
+1,8592,IAF AoF Syd,500,4
+1,8598,IAF VUX Anp. utbild. lärling,512,4
+1,8599,IAF AoF Verksamhetschef,500,4
+1,8602,IAF BUF Mott. Socialjour VINR,7439,4
+1,8603,IAF AOF Insatser Arbetsmarknad,500,4
+1,8607,IAF MoP Myndighetsutövning,7403,4
+1,8608,IAF BUF Boende barn och unga,7439,4
+1,8611,IAF Stab,5457,4
+1,8612,IAF MOP HVB Stödboende,7403,4
+1,8613,IAF AOF Mott. och integration,500,4
+1,8617,IAF VUX SFI SO  Stödj. kurser,512,4
+1,8619,IAF BUF Nord 2,7439,4
+1,8623,IAF AoF Nord,500,4
+1,8627,IAF VUX GYM yrke egen 1 och 2,512,4
+1,8629,IAF BUF Syd 2,7439,4
+1,8652,KSK SC Rekrytering och Bemann.,2849,4
+1,9328,VOF Hemtjänst,9334,4
+1,9338,IAF VUX Vht.stöd o vaktmästeri,512,4
+1,9340,VOF Hälso och sjukvård,9331,4
+1,9449,IAF AOF Arbetsmarknad,500,4
+1,9543,KSK AVD Kansli,440,4
+1,10173,IAF MOP Boende SP 5,7403,4
+1,10897,KOF UAD Trygghetsenheten,425,4
+1,10918,KSK DF Förvaltningssektionen,58,4
+1,10926,KOF IOF Idrottsplatsenheten,408,4
+1,10928,KOF IOF Himlabadet Sporthallen,408,4
+1,10929,KOF IOF Sim och Sporthallsenh.,408,4
+1,10931,KOF IOF Friluftsenheten,408,4
+1,10943,IAF MOP Boende SP 3,7403,4
+1,10952,IAF MOP Boende SP 2,7403,4
+1,10978,IAF MOP Boende SP 1,7403,4
+1,10996,IAF MOP Individstöd,7403,4
+1,11001,IAF MOP Öppenvård,7403,4
+1,11021,LMK Lantmäterimyndigheten,42,4
+1,11023,SBK MOE Exploateringssektionen,712,4
+1,11024,SBK MOE Marksektionen,712,4
+1,11270,KSK AVD Näringsliv o. tillväxt,440,4
+1,500000,VOF Stab,4203,4
+1,500036,VOF OOF Personlig assistans,4180,4
+1,500136,IAF MOP Boende SP 4,7403,4
+1,500140,IAF VUX GYM yrke extern,512,4
+1,500148,KSK SC Kontaktcenter,2849,4
+1,500400,BOU LH Lärande och hälsa,500399,4
+1,500418,KSK AVD Säkerhet och beredskap,440,4
+1,503591,SBK GA Parksektionen,714,4
+1,40,MK Miljökontoret,39,5
+1,44,LMK Lantmäterikontoret,43,5
+1,48,ÖFK Överförmyndarkontoret,47,5
+1,52,BOU GR Bosvedjeskolan,37,5
+1,76,BoU Skoldirektör,75,5
+1,124,BOU GR Höglundaskolan,37,5
+1,220,BoU Stab,75,5
+1,227,BOU Personalförsörjning,75,5
+1,232,VOF Direktör,231,5
+1,245,VOF Avd. Systemst. o välfärd,500000,5
+1,370,VOF OOF Gruppbostad,557,5
+1,387,SBK Stadsbyggnadskontoret,386,5
+1,396,Kommunstyrelsen,395,5
+1,410,KOF IOF Idrott och fritid stab,409,5
+1,420,KOF SBT Stadsbibliotek,419,5
+1,427,KOF UAD Bredsand Opalen,8519,5
+1,433,KOF Stab,432,5
+1,438,KOF KOM Kultur och museer,437,5
+1,444,KSK Avd Kommundirektör,443,5
+1,447,KF Koncernstaben Politiska sek,446,5
+1,505,IAF AOF Specialister EC,1123,5
+1,527,KSK Övergripande lönekostnader,526,5
+1,549,VOF OOF Övergripande,557,5
+1,648,Övergripande lönekostnader,647,5
+1,660,KOF IOF Sim och Sporthallsenh.,10929,5
+1,666,SBK MOE Mark och explo.avd,718,5
+1,696,SBK Planavdelning,716,5
+1,698,SBK Byggavdelning,715,5
+1,699,SBK GA Gatu och Parkavdelning,720,5
+1,725,SBK GA Drift Gata,722,5
+1,730,KOF KOM Sundsvalls museum,727,5
+1,731,KOF KOM Friluftsmuseerna,728,5
+1,742,KOF UAD Tornhuset,741,5
+1,746,KOF UAD Ungdomsavdelningen,745,5
+1,747,KOF UAD Alnö  Ljustadalen,426,5
+1,750,KOF UAD Matfors Granloh. Indal,8521,5
+1,751,KOF UAD Nacksta Skönsm. Sköns.,8516,5
+1,758,KOF IOF Friluftsenheten,10931,5
+1,761,KOF IOF Himlabadet Sporthallen,10928,5
+1,762,KOF IOF Idrottsplatsenheten,10926,5
+1,775,BOU GR Uslands skola,37,5
+1,776,BOU GR Vibackeskolan,37,5
+1,779,BOU GR Gångvikens skola,37,5
+1,780,BOU GR Ljustadalens skola,37,5
+1,783,BOU GR Hagaskolan,37,5
+1,785,BOU GR Norrbackaskolan,37,5
+1,796,BOU GR Grundskola,37,5
+1,810,KSK SC Ekonomi Centralt stab,800,5
+1,811,KSK SC FOT Fordon,808,5
+1,815,KSK SC Admin. Centralt stab,807,5
+1,816,KSK SC LOP Centralt stab,803,5
+1,860,KSK DF Drakfastigheter Stab,856,5
+1,863,KSK DF Driftsektionen,859,5
+1,875,BOU GR Hellbergsskolan,37,5
+1,877,BOU GR Granbergsskolan Östra,37,5
+1,894,BOU GR Bergsåker skola,37,5
+1,896,BOU GR Stige skola,37,5
+1,897,BOU GR Lidens skola,37,5
+1,898,BOU GR Vallens skola,37,5
+1,899,BOU GR Högoms skola,37,5
+1,910,BOU FSK Gumsekullen förskola,56,5
+1,913,BOU GR Bredsands skola,37,5
+1,914,BOU GR Essviks skola,37,5
+1,915,BOU GR Solede skola,37,5
+1,917,BOU GR Kyrkmons skola,37,5
+1,918,BOU GR Nivrenaskolan,37,5
+1,935,BOU GR Skönsmons skola,37,5
+1,937,BOU GR St. Olofskolan,37,5
+1,938,BOU GR Sundsvalls  Montessori,37,5
+1,939,BOU Ekonomi och utredning,75,5
+1,946,BOU LH CFL,500400,5
+1,958,BOU GR Matfors skola,37,5
+1,959,BOU GR Stöde skola,37,5
+1,962,BOU GR Lucksta skola,37,5
+1,967,BOU FSK Förskola,56,5
+1,1115,BOU LH Kulturskolan,500400,5
+1,1129,IAF VUX Stöd utb. ext. Rektor,8558,5
+1,1133,IAF VUX SFI och SO Rektor,8617,5
+1,1135,IAF VUX Rektor,8598,5
+1,1149,KSK DF Städområde 11,1143,5
+1,1165,Stadsbyggnadsnämnden,1164,5
+1,1168,Kultur- och fritidsnämnden,1167,5
+1,1171,Barn- och utbildningsnämnden,1170,5
+1,1177,Miljönämnden,1176,5
+1,1180,Överförmyndarnämnden MITT,1179,5
+1,1183,Revision,1182,5
+1,1186,Valnämnden,1185,5
+1,1189,Lantmäterinämnden,1188,5
+1,1192,Förtroendenämnden,1191,5
+1,1195,Kommunfullmäktige,1194,5
+1,1197,KSK Avd HR,1196,5
+1,1199,KSK AVD Ekonomi Verksamh.styr.,1198,5
+1,1201,KSK AVD Samhällsutv. o. hållba,1200,5
+1,1203,KSK Avd Kommunikation,1202,5
+1,1252,VOF OOF Övriga verksamheter,557,5
+1,1253,VOF Avdelning ekonomi o analys,238,5
+1,1257,Koncernbolagen,1256,5
+1,2834,KSK AVD Digitalisering IT stab,2835,5
+1,2850,KSK SC Verksamhetschef,2853,5
+1,2887,KSK SC Övergripande lönekostn.,2888,5
+1,4159,KSK SC SMM Centralt stab,4161,5
+1,4164,SBK GA Entreprenadsektion,4157,5
+1,4179,VOF OOF Servicebostad,557,5
+1,4193,VOF OOF Barn och unga kortid.,557,5
+1,4194,VOF HTJ Centralt,9328,5
+1,4196,VOF MYN LSS,4214,5
+1,4202,KOF KOM Scenservice,4234,5
+1,4223,VOF OOF Daglig verksamhet,557,5
+1,5458,IAF Direktör,5460,5
+1,5537,SBK GA Planering,5534,5
+1,7228,VOF HOS Sjuksköterskor,9340,5
+1,7233,IAF BuF Behandling öppenvård,7327,5
+1,7241,IAF VUX GYM yrke egen 1 och 2,8627,5
+1,7247,IAF BUF Familjerätt EC,8547,5
+1,7252,IAF Stab,8611,5
+1,7254,IAF BUF Boende EC,8608,5
+1,7262,IAF BUF Syd 2 EC,8629,5
+1,7269,IAF VUX Stöd vägl adm Enh.chef,1132,5
+1,7282,IAF MOP Individstöd,10996,5
+1,7320,VOF HOS Centralt,9340,5
+1,7334,IAF AoF Verksamhetschef,8599,5
+1,7352,Individ o arbetsmarknadsnämnd,7464,5
+1,7354,IAF MOP Boende SP  3 EC,10943,5
+1,7384,IAF MoP Myndighetsutövning,8607,5
+1,7387,IAF AOF Nord EC,8623,5
+1,7413,IAF BUF Nord 1 EC,8561,5
+1,7434,IAF MoP Verksamhetschef,8582,5
+1,7453,Vård och omsorgsnämnden,7270,5
+1,7466,IAF MOP Boende SP 1 EC,10978,5
+1,7470,IAF BUF Verksamhetschef,8590,5
+1,7502,IAF BUF Nord 2 EC,8619,5
+1,7515,IAF AOF Mottag. o. Integr. EC,8613,5
+1,7533,IAF BUF Syd 1 EC,8571,5
+1,7540,IAF MOP HVB Stödboende EC,8612,5
+1,7548,VOF HOS Korttidsboende,9340,5
+1,8411,KSK DF Städsektionen,1143,5
+1,8416,KSK DF Städområde 12,1143,5
+1,8417,KSK DF Städområde 14,1143,5
+1,8419,KSK DF Städområde 16,1143,5
+1,8421,KSK DF Städområde 13,1143,5
+1,8512,KOF SBT Medier och webb,8515,5
+1,8517,KOF SBT Läsfrämjandet,8520,5
+1,8522,KOF SBT Mobil och digital,8513,5
+1,8546,KSK SC FOT Fordon stab,808,5
+1,8550,IAF MOP Boende SP 2 EC,10952,5
+1,8553,IAF AOF Syd EC,8592,5
+1,8620,KSK SC FOT Transport,808,5
+1,8631,IAF Vux Verksamhetschef,8580,5
+1,8650,KSK SC Rekrytering och Bemann.,8652,5
+1,8792,KSK DF Projekt och Specialist,857,5
+1,9329,KSK SC SMM Drift 1,4161,5
+1,9330,IAF VUX Vht stöd o vaktmästeri,9338,5
+1,9332,KSK SC SMM Drift 3,4161,5
+1,9333,VOF HTJ Övriga,9328,5
+1,9336,VOF HTJ Hemtjänst,9328,5
+1,9337,KSK SC SMM Drift 2,4161,5
+1,9339,KSK SC SMM Drift 4,4161,5
+1,9341,VOF HoS Rehab,9340,5
+1,9503,IAF AOF Arbetsmarknad,9449,5
+1,9541,KSK AVD Kansli,9543,5
+1,10172,IAF MOP Boende SP 5 EC,10173,5
+1,10896,KOF UAD Trygghetsenheten,10897,5
+1,10908,KSK DF Förvaltningssektionen,10918,5
+1,10913,KSK DF Driftområde Syd,859,5
+1,10923,KSK DF Driftområde Nord,859,5
+1,10935,IAF VUX Yrkes Högskola,500140,5
+1,10938,IAF MOP Boende SP 5 Finstav.,10173,5
+1,10940,IAF MOP Utökad grundbemanning,10173,5
+1,10942,IAF VUX Vht.stöd Enhetschef,9338,5
+1,10944,IAF BUF HVB Sundsbruk,8608,5
+1,10945,IAF MOP Boende SP 3 Hammarv.,10943,5
+1,10947,IAF BUF Familjerätt,8547,5
+1,10948,IAF VUX Gymn kurser egen o ext,8558,5
+1,10949,IAF VUX Grundl. egen och ext,8598,5
+1,10950,IAF VUX GYM yrke egen Rektor,8627,5
+1,10954,IAF BUF Syd 2 Bredsand Kvissle,8629,5
+1,10955,IAF MOP HVB Stödb. Kalmarv. 2,8612,5
+1,10957,IAF BUF Mottagning Socialjour,8602,5
+1,10961,IAF MOP Individstöd EC,10996,5
+1,10962,IAF BUF Plac. BOU Nord,8568,5
+1,10963,IAF MOP HVB S-vall kvinnobeh.,8612,5
+1,10964,IAF VUX Anp. utbild. lärling,8598,5
+1,10965,IAF AOF Integrationsteam,8613,5
+1,10966,IAF VUX Stöd vägl. antagning,1132,5
+1,10967,IAF BUF Nord 1 Ljustadalen,8561,5
+1,10968,IAF MOP SP Individstöd Nacksta,10173,5
+1,10970,IAF AOF Tolkservice,8613,5
+1,10972,IAF MOP Öppenvård BOS,11001,5
+1,10975,IAF MOP Bo. SP 4 Midälv. 6-8,500136,5
+1,10977,IAF AOF Nord team 1,8623,5
+1,10980,IAF AOF Syd team 1,8592,5
+1,10981,IAF MOP HVB Slink Inn,8612,5
+1,10985,IAF BUF VINR,8602,5
+1,10986,IAF AOF Enhetschef,9449,5
+1,10987,IAF VUX SFI egen extern och SO,8617,5
+1,10988,IAF BUF Syd 1 Nacksta,8571,5
+1,10989,IAF MOP HVB Skönsbergsv.84,8612,5
+1,10990,IAF VUX GYM Lärcentrum,8558,5
+1,10993,IAF MOP Boende SP 1 Igeltjärn,10978,5
+1,10995,IAF Stab Bemanning,8611,5
+1,10998,IAF AOF Grupp ekonom. bistånd,8613,5
+1,11000,IAF AOF Anställningsteam,1123,5
+1,11002,IAF BUF Familjerådgivning,8547,5
+1,11003,IAF AOF Assistentgruppen,1123,5
+1,11004,IAF VUX Stödjande kurser,8617,5
+1,11005,IAF BUF Nord 2 Skönsberg,8619,5
+1,11007,IAF BUF Ungdomsbo. stödboende,8608,5
+1,11008,IAF MOP Öppenvård SBC,11001,5
+1,11010,IAF VUX Stöd. o. vägled. Adm.,1132,5
+1,11012,IAF BUF Behandl. öppenvård EC,7327,5
+1,11013,IAF MOP Bo. SP 2 Bataljonsv. 3,10952,5
+1,11015,IAF MOP Myndighetsutövning EC,8607,5
+1,11017,LMK Lantmäterimyndigheten,11021,5
+1,11019,SBK MOE Exploaterinssektionen,11023,5
+1,11020,SBK MOE Marksektionen,11024,5
+1,11065,IAF BUF Plac. BOU Syd,8568,5
+1,11211,KSK Avd Strategi och styrning,2835,5
+1,11213,KSK Avd Digital utveckling,2835,5
+1,11214,KSK Avd Produktion,2835,5
+1,11239,KSK DF Intermittenta,1143,5
+1,11241,KSK SC LOP Lönehandläggare,803,5
+1,11242,KSK SC Ekonomi Leverantör,800,5
+1,11243,KSK SC Adm. Växel Reception,807,5
+1,11244,KSK SC ROB Bemanningsenhet,8652,5
+1,11245,KSK SC Ekonomi Ledning,800,5
+1,11246,KSK SC ROB Specialiststöd,8652,5
+1,11247,KSK SC Adm. Kommunarkivet,807,5
+1,11248,KSK SC Adm. Kontorsservice,807,5
+1,11249,KSK SC Ekonomi Kund,800,5
+1,11250,KSK SC Ekonomi Redovisning,800,5
+1,11251,KSK DF Tvättstugan,1143,5
+1,11252,KSK SC Adm. Demokratistöd,807,5
+1,11254,KSK SC ROB Rekrytering,8652,5
+1,11269,KSK AVD Näringsliv o. tillväxt,11270,5
+1,500001,VOF Stab,500000,5
+1,500004,VOF HTJ Servicehus,9328,5
+1,500007,VOF HOS Trygg hemgång,9340,5
+1,500010,VOF MYN SOL,4214,5
+1,500011,VOF MYN Övergripande,4214,5
+1,500014,VOF ÄB Alnösol,34,5
+1,500015,"VOF ÄB Attmarhem ",34,5
+1,500016,VOF ÄB Centralt,34,5
+1,500018,VOF ÄB Granlunda,34,5
+1,500019,VOF ÄB Havssundet,34,5
+1,500020,VOF ÄB Heffnersgården,34,5
+1,500021,VOF ÄB Hellbergsgården,34,5
+1,500023,VOF ÄB Kristinelund,34,5
+1,500024,VOF ÄB Lindgården,34,5
+1,500025,VOF ÄB Ljustagården,34,5
+1,500026,VOF ÄB Norra Kajen,34,5
+1,500027,VOF ÄB Rutsgården,34,5
+1,500028,VOF ÄB Skogsbrynet,34,5
+1,500029,VOF ÄB Skottsundsbacken,34,5
+1,500030,VOF ÄB Solgården,34,5
+1,500031,VOF ÄB Solhaga,34,5
+1,500032,VOF ÄB Thulegården,34,5
+1,500033,VOF ÄB Tunastrand,34,5
+1,500034,VOF ÄB Tingsta,34,5
+1,500037,VOF OOF Personlig ass. övergr.,500036,5
+1,500038,VOF OOF Personlig assist. LSS,500036,5
+1,500041,VOF OOF Övriga insatser,557,5
+1,500053,VOF OOF Personlig ass. SFB,500036,5
+1,500092,BOU GR SAGA undervisningsgrupp,37,5
+1,500095,BOU SGY Anpassad gymnasieskola,1240,5
+1,500096,BOU SGY Hedbergska gymnasiesk.,1240,5
+1,500098,BOU SGY Introduktionsprogram,1240,5
+1,500099,BOU SGY Verksamhetschef GY,1240,5
+1,500101,BOU SGY Västermalms gymnasium,1240,5
+1,500137,IAF VUX Gym yrke extern,500140,5
+1,500142,IAF MOP Boende SP 4 EC,500136,5
+1,500145,IAF VUX GYM yrke extern Rektor,500140,5
+1,500149,KSK SC Kontaktc. Centralt stab,500148,5
+1,500151,KSK SC Kontaktcenter sektion 1,500148,5
+1,500153,KSK SC Kontaktcenter sektion 2,500148,5
+1,500167,VOF ÄB Knutshemmet,34,5
+1,500401,BOU LH Lärande,500400,5
+1,500403,BOU LH Hälsa,500400,5
+1,500406,VOF OOF Individstöd,557,5
+1,500419,KSK AVD Säkerhet och beredskap,500418,5
+1,503592,SBK GA Parksektionen,503591,5
+1,504497,BOU GR Södermalms skola,37,5
+1,504498,BOU GR Österro skola,37,5
+1,504499,BOU GR Åkersviks skola,37,5
+1,504501,BOU GR Granbergsskolan Västra,37,5
+1,504502,BOU FSK Haga Bosvedj Skönsberg,56,5
+1,504504,BOU FSK Sidsjö Nacksta Söderma,56,5
+1,504506,BOU FSK Njurunda,56,5
+1,504508,BOU FSK Alnö Ljustadalen,56,5
+1,504510,BOU FSK Skönsmon Bredsand,56,5
+1,504512,BOU FSK Matfors Stöde,56,5
+1,504514,BOU FSK Kovla Indal Liden Holm,56,5
+1,504516,BOU FSK Bergsåker Granlo Grhlm,56,5
+1,504529,IAF AOF Företagsgrupp 1,8565,5
+1,504530,IAF AOF Företagsgrupp 2,8565,5
+1,504531,IAF AOF Företagsgrupp 3,8565,5
+1,504532,IAF AOF Företagsgrupp 4,8565,5
+1,504535,IAF AOF Arenor,8603,5
+1,504536,IAF AOF Kompetenscenter,8603,5
+1,41,MK Miljökontoret,40,6
+1,45,LMK Lantmäterikontoret,44,6
+1,49,ÖFK Överförmyndarkontoret,48,6
+1,61,KSK DF Drakfastigheter Stab,860,6
+1,65,KSK SC SMM Stab,4159,6
+1,66,KSK SC Adm. Kontorsservice,11248,6
+1,71,KSK Avd Inköp,1199,6
+1,72,KSK SC Adm. Kommunarkivet,11247,6
+1,77,BoU Skoldirektör,76,6
+1,80,BOU FSK Bällsta förskola,504512,6
+1,82,BOU FSK Baldersvägens fsk,504502,6
+1,83,BOU FSK Bosvedjans fsk,504502,6
+1,84,BOU FSK Forskaren fsk,504516,6
+1,85,BOU FSK Fyren fsk,504508,6
+1,88,BOU FSK Granlohögs fsk,504516,6
+1,89,BOU FSK Haga fsk,504502,6
+1,90,BOU FSK Humlans fsk,504508,6
+1,91,BOU FSK Härmsta fsk,504516,6
+1,92,BOU FSK Indals fsk,504514,6
+1,93,BOU FSK Korsta fsk,504502,6
+1,95,BOU FSK Lanternans fsk,504508,6
+1,96,BOU FSK Lidens fsk,504514,6
+1,101,BOU FSK Lärarens fsk,504502,6
+1,103,BOU FSK Polstjärnans fsk,504516,6
+1,104,BOU FSK Riddarens fsk,504502,6
+1,105,BOU FSK Robäckens fsk,504516,6
+1,106,BOU FSK Rondellens fsk,504516,6
+1,108,BOU FSK Rönnbackens fsk,504508,6
+1,111,BOU FSK Solen Montessori fsk,504502,6
+1,112,BOU FSK Solrosen fsk,504516,6
+1,113,BOU FSK Solstrålen fsk,504508,6
+1,114,BOU FSK Storken fsk,504502,6
+1,116,BOU FSK Vibacke fsk,504508,6
+1,117,BOU FSK Vikingen fsk,504516,6
+1,120,BOU FSK Äppellunda fsk,504508,6
+1,121,BOU FSK Strandgårdens fsk,504508,6
+1,128,BOU FSK Essvik förskola,504506,6
+1,129,BOU FSK Forsa förskola,504506,6
+1,131,BOU FSK Hemmanets fsk,504506,6
+1,132,BOU FSK Klingsta fsk,504504,6
+1,135,BOU FSK Kronans fsk,504510,6
+1,136,BOU FSK Kulans fsk,504504,6
+1,137,BOU FSK Dagbarnvårdare,504506,6
+1,138,BOU FSK Lucksta fsk,504512,6
+1,140,BOU FSK Mjösunds fsk,504506,6
+1,141,BOU FSK Nedansjö fsk,504512,6
+1,142,BOU FSK Nolby fsk,504506,6
+1,143,BOU FSK Nolbykullens fsk,504506,6
+1,144,BOU FSK Copernicus förskola,504506,6
+1,146,BOU FSK Regnbågen fsk,504504,6
+1,147,BOU FSK Sidsjö fsk,504504,6
+1,148,BOU FSK Skogsparkens fsk,504504,6
+1,149,BOU FSK Skottsunds fsk,504506,6
+1,150,BOU FSK Kubens fsk,504510,6
+1,152,BOU FSK Snurran fsk,504512,6
+1,155,BOU FSK Stjärnans fsk,504510,6
+1,156,BOU FSK Stångå fsk,504506,6
+1,157,BOU FSK Sörängsbacken fsk,504512,6
+1,158,BOU FSK Gumsekullens förskola,910,6
+1,159,BOU FSK Vapelskogens fsk,504510,6
+1,160,BOU FSK Vretens fsk,504504,6
+1,163,BOU FSK Ängoms fsk,504512,6
+1,164,BOU GR Bredsands skola 1,913,6
+1,165,BOU GR Essvik skola,914,6
+1,166,BOU GR Höglundaskolan 1,124,6
+1,167,BOU GR Kyrkmons skola 1,917,6
+1,168,BOU GR Lucksta skola,962,6
+1,169,BOU GR Matfors skola 1,958,6
+1,170,BOU GR Nivrenaskolan 2,918,6
+1,172,BOU GR Skönsmons skola 2,935,6
+1,173,BOU GR Solede skola,915,6
+1,174,BOU GR St Olofsskolan 1,937,6
+1,175,BOU GR Sundsvalls Montessori,938,6
+1,176,BOU GR Stöde skola 1,959,6
+1,179,BOU GR Bergsåkers skola 1,894,6
+1,180,BOU GR Bosvedjeskolan 1,52,6
+1,182,BOU GR Gångvikens skola,779,6
+1,183,BOU GR Hagaskolan 1,783,6
+1,184,BOU GR Högoms skola,899,6
+1,187,BOU GR Lidens skola,897,6
+1,188,BOU GR Ljustadalens skola 1,780,6
+1,189,BOU GR Hellbergsskolan 2,875,6
+1,190,BOU GR Granbergsskolan Östra,877,6
+1,191,BOU GR Stige skola,896,6
+1,192,BOU GR Usland skola 1,775,6
+1,193,BOU GR Vallen skola,898,6
+1,197,BOU LH Hälsa,500403,6
+1,198,BOU GR Norrbackaskolan,785,6
+1,199,BOU LH CFL 1,946,6
+1,201,BOU FSK Klockarbergets fsk,504506,6
+1,209,BOU SGY Arbetslag SA,500096,6
+1,210,BOU SGY Arbetslag FS,500096,6
+1,211,BOU SGY Arbetslag BA,500101,6
+1,213,BOU SGY Arbetslag TE,500101,6
+1,214,BOU SGY Arbetslag IMA,500098,6
+1,215,BOU SGY Arbetslag EK,500096,6
+1,216,BOU SGY Arbetslag IMS,500098,6
+1,217,BOU SGY Verksamhetsstöd VM,500101,6
+1,221,BOU Stabsfunktion,220,6
+1,224,BOU EK Ekonomi och utredning,939,6
+1,230,BOU LH Kulturskolan 1,1115,6
+1,272,KSK SC SMM Västermalm,9329,6
+1,288,KSK SC SMM Bosvedjan,9329,6
+1,293,KSK SC SMM Njurunda,9339,6
+1,300,KSK SC SMM Drift 3,9332,6
+1,323,KSK DF Driftsektionen,863,6
+1,388,SBK Stadsbyggnadskontoret,387,6
+1,390,SBK Byggavdelning,698,6
+1,393,SBK Planavdelning,696,6
+1,397,Lantmäterinämnden,1189,6
+1,398,Stadsbyggnadsnämnden,1165,6
+1,399,Kultur- och fritidsnämnden,1168,6
+1,400,Barn- och utbildningsnämnden,1171,6
+1,402,Miljönämnden,1177,6
+1,403,Överförmyndarnämnden MITT,1180,6
+1,405,Förtroendenämnden,1192,6
+1,406,Valnämnden,1186,6
+1,407,Kommunstyrelsen,396,6
+1,411,KOF IOF Idrott och fritid stab,410,6
+1,413,KSK SC Admin. Centralt stab,815,6
+1,421,KOF SBT Stadsbibliotek,420,6
+1,428,KOF UAD Ungdomsavdelningen,746,6
+1,434,KOF Stab,433,6
+1,439,KOF KOM Kultur och museer,438,6
+1,442,KOF KOM Friluftsmuseerna,731,6
+1,445,KOF IOF Arenaservice,762,6
+1,448,KF Koncernstaben Politiska sek,447,6
+1,449,KSK Avd Kommundirektör,444,6
+1,451,KOF IOF Friluftsliv,758,6
+1,453,KOF IOF Ängen Södra berget,758,6
+1,454,KOF IOF Kom UT,758,6
+1,455,KSK AVD Kansli,9541,6
+1,457,KOF IOF Sidsjöb. och skidspår,758,6
+1,458,KSK Avd Ekonomi Verksamh.styrn,1199,6
+1,459,KSK Avd Kommunikation,1203,6
+1,460,KSK AVD Samhällsutv. o. hållba,1201,6
+1,463,KOF SBT Medier och webb,8512,6
+1,464,KOF SBT Läsfrämjandet,8517,6
+1,465,KOF SBT Mobil och digital,8522,6
+1,470,KOF UAD Alnö,747,6
+1,471,KOF UAD Skönsmogården,751,6
+1,474,KOF UAD Nackstagården,751,6
+1,475,KOF UAD Opalen,427,6
+1,476,KOF UAD Centrumvillans F.gård,750,6
+1,477,KOF UAD Matfors Fritidsgård,750,6
+1,478,KOF UAD Bredsand,427,6
+1,479,KOF UAD Tornhuset,742,6
+1,523,Kommunfullmäktige,1195,6
+1,524,Revision,1183,6
+1,528,KSK ÖGL lönekostnader moms,527,6
+1,555,VOF OOF DV Stuvaren,4223,6
+1,560,KSK SC FOT Fordon,811,6
+1,609,KOF IOF Mindre friluftsanlägg.,758,6
+1,621,KOF KOM Sundsvalls museum,730,6
+1,622,KSK ÖGL Övrig administration,527,6
+1,627,KSK DF Städområde 11,1149,6
+1,629,KSK ÖGL Pers. Adm,527,6
+1,630,BOU FSK Södra Bergets fsk,504510,6
+1,631,BOU Timanställda o facklig tid,227,6
+1,635,BOU FSK S.valls Montessori fsk,504504,6
+1,649,ÖGL Förtroendevalda Bolagen,648,6
+1,650,KSK Avd HR Stab,1197,6
+1,653,KOF IOF Himlabadet och Sporth.,761,6
+1,654,KOF IOF Idrottsplatsenheten,762,6
+1,656,SBK GA Gatu och Parkavdelning,699,6
+1,657,SBK GA Drift Gata,725,6
+1,661,KOF IOF Alnö,660,6
+1,662,KOF IOF Sim- och sporthallar,660,6
+1,663,KOF IOF Njurunda,660,6
+1,664,KOF IOF Matfors,660,6
+1,665,KOF IOF Stöde,660,6
+1,668,SBK MOE Mark och explo.avd,666,6
+1,689,Krisledningsnämnden,396,6
+1,797,BOU GR Grundskola,796,6
+1,798,BOU Administration,220,6
+1,854,KSK SC SMM Bergsåker Liden,9332,6
+1,968,BOU FSK Förskola,967,6
+1,1112,BOU FSK Gillebergets familjec.,504502,6
+1,1114,BOU FSK Karlavagnens dygnrunt,504516,6
+1,1155,KSK DF Städområde 14,8417,6
+1,1157,KSK DF Städområde 12,8416,6
+1,1222,BOU GR Vibackeskolan 1,776,6
+1,1232,KF Nationaldagen,1195,6
+1,1239,MK Miljö ÖGL,40,6
+1,1258,Koncernbolagen,1257,6
+1,1335,VOF OOF Personlig assistans 79,500038,6
+1,1336,VOF OOF Personlig assistans 80,500038,6
+1,1338,KSK SC Adm. Växel Reception,11243,6
+1,1339,ÖGL Arvoden,396,6
+1,2654,VOF OOF Personlig assistans 88,500053,6
+1,2695,KSK SC SMM Drift 1,9329,6
+1,2836,KSK AVD Digitalisering IT stab,2834,6
+1,2839,BOU SGY Arbetslag BF,500096,6
+1,2848,KSK SC Rekrytering och Bemann.,8650,6
+1,2851,KSK SC Ekonomi Redovisning,11250,6
+1,2852,KSK SC ROB Rekrytering,11254,6
+1,2855,KSK SC Ekonomi Kund,11249,6
+1,2856,KSK SC Verksamhetschef,2850,6
+1,2857,KSK SC Ekonomi Centralt stab,810,6
+1,2861,KSK SC Ekonomi Leverantör,11242,6
+1,2862,KSK SC LOP Centralt stab,816,6
+1,2886,KSK SC ÖGL Endast uppföljning,2887,6
+1,3433,Kommunala Pensionärsrådet KPR,396,6
+1,3529,KSK DF Städområde 16,8419,6
+1,3530,KSK DF Städområde 13,8421,6
+1,3546,KSK DF Driftområde Syd,10913,6
+1,3550,KSK DF Driftområde Nord,10923,6
+1,3605,BOU SGY Arbetslag ES,500096,6
+1,4160,SBK GA Entreprenadsektion,4164,6
+1,4167,KSK SC FOT Verkstad,811,6
+1,4182,KOF KOM Scenservice,4202,6
+1,4658,BOU FSK Tallvägens förskola,504510,6
+1,4659,BOU FSK Nacksta fsk,504504,6
+1,4677,KSK SC SMM Stöde Matfors,9332,6
+1,4690,KOF IOF Himlabadet simunderv.,761,6
+1,4888,KSK SC SMM Skönsmon,9339,6
+1,4912,BOU SGY Arbetslag NA,500101,6
+1,5358,KOF IOF Förenings o. uth.byrån,762,6
+1,5359,KSK SC SMM Nacksta,9337,6
+1,5362,KSK SC SMM Haga Skönsberg,9337,6
+1,5364,LMK Lantmäterimyndigheten,11017,6
+1,5387,SBK MOE Exploateringssektionen,11019,6
+1,5391,BOU FSK Fågelgränds förskola,504504,6
+1,5396,KSK SC Ekonomi Ledning,11245,6
+1,5405,KSK SC ROB Specialiststöd,11246,6
+1,5406,KSK SC SMM Alnö,9329,6
+1,5535,SBK GA Planering,5537,6
+1,7042,BOU EK Lokalförsörjning,939,6
+1,7059,BOU SGY Verksamhetsstöd HB,500096,6
+1,7103,KSK SC SMM Drift 4,9339,6
+1,7215,VOF ÄB Solhaga 2,500031,6
+1,7216,VOF Htj Skönsmon 2,9336,6
+1,7217,VOF HOS 1,7228,6
+1,7219,VOF OOF SB Kalmarvägen 13,4179,6
+1,7220,VOF OOF GB Sönderborgsgatan 12,370,6
+1,7221,IAF AOF Arena i Kraft,504535,6
+1,7222,VOF HTJ Alnö och Finsta,9336,6
+1,7223,IAF Direktör,5458,6
+1,7224,VOF ÄB Skottsundsbacken 1,500029,6
+1,7225,VOF OOF Personlig assistans 42,500053,6
+1,7226,VOF ÄB Norra kajen gemensamt,500026,6
+1,7229,IAF AOF Förgr. 2 IKEA,504530,6
+1,7230,VOF OOF Personlig assistans 72,500038,6
+1,7231,VOF HTJ Fotvård,9333,6
+1,7235,IAF AOF Förgr. 1 Mait,504529,6
+1,7236,VOF ÄB Solgården gemensamt,500030,6
+1,7237,VOF OOF Personlig assistans 40,500053,6
+1,7238,VOF OOF Pers. ass. enhetschef,500037,6
+1,7239,VOF OOF GB Bruksgatan 22,370,6
+1,7240,VOF HOS Verksamhetschef,7320,6
+1,7242,VOF OOF Personlig assistans 45,500038,6
+1,7243,VOF ÄB Ljustagården,500025,6
+1,7245,VOF OOF GB Hermans,370,6
+1,7246,VOF OOF SB Axvägen,4179,6
+1,7248,VOF ÄB Lindg. kastanj o pil,500024,6
+1,7249,IAF AOF Tolkservice,10970,6
+1,7251,VOF OOF GB Kungsbackavägen 32,370,6
+1,7255,IAF AOF Förgr. 4 Tingsta,504532,6
+1,7256,VOF OOF Personlig assistans 14,500053,6
+1,7257,VOF OOF GB Östra Långgatan 5,370,6
+1,7259,IAF AOF Hälsoteam,504536,6
+1,7263,VOF ÄB Granlunda 3,500018,6
+1,7264,IAF AOF Förgr. 2 Polis cafe,504530,6
+1,7265,VOF ÄB Tunastrand,500033,6
+1,7267,VOF OOF GB Baldersvägen 74,370,6
+1,7268,IAF MOP HVB S-vall kvinnobeh.,10963,6
+1,7271,VOF OOF KT Lotsgatan,4193,6
+1,7272,IAF MoP Verksamhetschef,7434,6
+1,7274,VOF ÄB Tingsta gemensam,500034,6
+1,7276,VOF OOF SB Medborgargatan 29,4179,6
+1,7277,IAF BUF VINR Barnahus,10985,6
+1,7278,VOF ÄB Lindgården asp o björk,500024,6
+1,7280,VOF OOF GB Luftvärnsvägen 7,370,6
+1,7284,VOF Gemensam administration,500001,6
+1,7287,VOF OOF GB Skanörvägen 2B,370,6
+1,7288,VOF OOF DV Falken,4223,6
+1,7289,VOF OOF GB Almedalen,370,6
+1,7290,IAF MOP Bo. SP 4 Midälvav. 6-8,10975,6
+1,7291,VOF HOS 2,7228,6
+1,7292,IAF VUX SFI egen extern och SO,10987,6
+1,7293,VOF OOF Personlig assistans 38,500038,6
+1,7295,VOF HoS Rehab AT,9341,6
+1,7296,VOF ÄB Granlunda 1,500018,6
+1,7297,VOF OOF Personlig assistans 77,500038,6
+1,7298,Vård och omsorgsnämnden,7453,6
+1,7299,VOF OOF GB Klinten 2,370,6
+1,7300,IAF AOF Förgr. 3 Trampolinen,504531,6
+1,7301,VOF HTJ Alnö SH BBT,500004,6
+1,7302,KSK SC SMM Drift 2,9337,6
+1,7303,VOF ÄB Skottsundsbacken  geme.,500029,6
+1,7305,VOF OOF Fritidsverksamhet,1252,6
+1,7306,IAF BUF Nord 2 Skönsberg,11005,6
+1,7307,VOF HTJ Granlo o Granloholm,9336,6
+1,7309,VOF OOF GB Kuskvägen 12,370,6
+1,7310,VOF HTJ AC dementa,9333,6
+1,7311,VOF OOF Personlig assistans 52,500038,6
+1,7312,IAF BUF Plac. BOU Nord,10962,6
+1,7313,VOF Avd. Systemstöd  o välfärd,245,6
+1,7315,VOF HTJ Matfors SH,500004,6
+1,7316,VOF OOF Personlig ass. övert.,500037,6
+1,7317,VOF OOF DV Fillan,4223,6
+1,7318,VOF OOF GB Åsta,370,6
+1,7319,IAF MOP Boende SP 5 Finstav.,10938,6
+1,7322,VOF OOF DV Grönborgs,4223,6
+1,7323,VOF ÄB Hellbergsgården,500021,6
+1,7324,VOF Htj Skönsmon 1,9336,6
+1,7325,VOF OOF GB Bäckebovägen 51,370,6
+1,7328,VOF ÄB Lindg. gran bok o tall,500024,6
+1,7331,VOF OOF Personlig assistans 68,500053,6
+1,7332,IAF BUF Syd 2 Bredsand Kvissle,10954,6
+1,7336,VOF ÄB Verksamhetschef,500016,6
+1,7338,VOF OOF GB Thulegatan 33,370,6
+1,7339,IAF MOP HVB Skönsbergsv. 84,10989,6
+1,7340,VOF HTJ Demenscentrum,9333,6
+1,7342,VOF ÄB Skottsundsbacken 3,500029,6
+1,7344,IAF BUF Familjerådgivning,11002,6
+1,7346,IAF AOF Förgr. 2 Kajplats 15,504530,6
+1,7347,VOF ÄB Skogsbrynet,500028,6
+1,7349,VOF OOF DV Majsvägen,4223,6
+1,7351,VOF OOF GB Lysekilsvägen 55,370,6
+1,7353,VOF OOF KV Ögården,4193,6
+1,7355,VOF HTJ Centralt Vht. chef,4194,6
+1,7356,VOF Htj Njurunda 2,9336,6
+1,7357,VOF OOF GB Finstavägen 36,370,6
+1,7358,VOF OOF SB Albäcksgatan 24,4179,6
+1,7359,IAF BUF verksamhetschef,7470,6
+1,7360,VOF HOS Korttidsboende 2,7548,6
+1,7361,IAF AOF Integrationteam,10965,6
+1,7363,VOF OOF GB Kryssarvägen 84,370,6
+1,7364,IAF BUF Behandling öppenvård,7233,6
+1,7365,VOF OOF GB Januarivägen 86,370,6
+1,7366,VOF OOF Personlig assistans 69,500038,6
+1,7368,VOF Avdelning ekonomi o analys,1253,6
+1,7369,IAF AOF Förgr. 2 Lindgår. cafe,504530,6
+1,7371,VOF OOF Personlig assistans 83,500053,6
+1,7372,VOF OOF DV Miljökompaniet,4223,6
+1,7373,VOF OOF GB Kyrkogatan 28 övre,370,6
+1,7374,IAF MOP HVB Slink Inn,10981,6
+1,7375,VOF HTJ Haga o Bosvedjan,9336,6
+1,7376,KSK SC SMM Centrum Södermalm,9337,6
+1,7378,VOF OOF Personlig assistans 36,500053,6
+1,7379,IAF AOF Grupp ekonom. bistånd,10998,6
+1,7381,VOF OOF GB Räbbmogatan 8,370,6
+1,7383,VOF OOF KT Örtagården,4193,6
+1,7385,VOF ÄB Alnösol,500014,6
+1,7386,VOF OOF Personlig assistans 21,500038,6
+1,7388,VOF OOF GB Baldersvägen 18,370,6
+1,7391,IAF VUX Stöd utb. ext. Rektor,1129,6
+1,7392,VOF OOF GB Kalmarvägen 17,370,6
+1,7393,VOF HOS 3,7228,6
+1,7394,IAF BUF HVB Sundsbruk,10944,6
+1,7396,IAF AOF Förgr. 1 Adm. enheten,504529,6
+1,7397,VOF ÄB Granlunda gemensam,500018,6
+1,7399,VOF OOF SB Paviljongvägen 21,4179,6
+1,7400,IAF MOP Boende SP 1 Igeltjärn,10993,6
+1,7401,IAF VUX SFI och SO Rektor,1133,6
+1,7402,VOF OOF Verksamhetschef,549,6
+1,7404,VOF ÄB Solhaga 1,500031,6
+1,7405,VOF Htj Nacksta 1,9336,6
+1,7407,VOF OOF GB Ängebo,370,6
+1,7408,IAF MoP Myndighetsutövning,7384,6
+1,7410,IAF AOF Anställningsteam,11000,6
+1,7412,VOF OOF Personlig assistans 57,500053,6
+1,7414,IAF AOF Förgr. 2 Väst. station,504530,6
+1,7416,IAF MOP Boende SP 1 Enhetschef,7466,6
+1,7420,VOF HOS Sjukskötersk. kv. natt,7228,6
+1,7421,IAF VUX GYM yrke egen 1 och 2,7241,6
+1,7422,VOF ÄB Kristinelund gemensam,500023,6
+1,7423,VOF OOF Personlig assistans 47,500053,6
+1,7426,IAF AOF Förgr. 3 B-åker travb.,504531,6
+1,7429,VOF ÄB Lindgården gemensamt,500024,6
+1,7431,VOF OOF GB Linköpingsvägen 2,370,6
+1,7432,IAF Stab,7252,6
+1,7433,VOF OOF DV Trädgårdsgatan 3,4223,6
+1,7436,VOF Htj Nacksta 2,9336,6
+1,7437,VOF OOF GB Bogserarvägen 21,370,6
+1,7438,VOF OOF KV Kullerbyttan,4193,6
+1,7440,VOF HTJ Träffpunkten,9333,6
+1,7441,IAF AOF Specialister EC,505,6
+1,7443,VOF OOF GB Västra vägen 74D,370,6
+1,7444,VOF Htj Skönsberg,9336,6
+1,7445,VOF ÄB Havssundet,500019,6
+1,7447,VOF ÄB Norra Kajen 2 och 3,500026,6
+1,7448,IAF BUF Mott. Socialjour EC,10957,6
+1,7450,IAF AOF Förgr. 1 Biltvätten,504529,6
+1,7451,VOF ÄB Attmarhem,500015,6
+1,7452,VOF OOF Personlig assistans 76,500053,6
+1,7454,VOF OOF GB Klinten 1,370,6
+1,7455,IAF MOP Individstöd,7282,6
+1,7456,VOF HTJ Tomtegränd SH,500004,6
+1,7460,VOF ÄB Thulegården,500032,6
+1,7462,VOF OOF Personlig ass. resurs.,500037,6
+1,7463,VOF OOF Personlig assistans 63,500053,6
+1,7465,VOF OOF DV Station 8,4223,6
+1,7467,VOF ÄB Heffnersgården gemensam,500020,6
+1,7468,VOF Htj Njurunda 1,9336,6
+1,7469,VOF OOF GB Bölevägen 18,370,6
+1,7471,VOF OOF GB Skravlingsvägen 10,370,6
+1,7472,VOF OOF DV Balders,4223,6
+1,7473,VOF OOF GB Åkerviksgatan 5,370,6
+1,7474,IAF MOP Bo. SP 2 Bataljonsv. 3,11013,6
+1,7477,VOF ÄB Kristinelund 1,500023,6
+1,7478,VOF OOF GB Januarivägen 80,370,6
+1,7479,VOF ÄB Norra Kajen 4 och 5,500026,6
+1,7480,IAF BUF Boende EC,7254,6
+1,7482,IAF AOF Förgr. 4 Hamnen 7,504532,6
+1,7483,VOF ÄB Granlunda 2,500018,6
+1,7484,VOF OOF Personlig assistans 82,500053,6
+1,7485,VOF Direktör,232,6
+1,7486,IAF AOF Förgr. 1 Östra Långg.,504529,6
+1,7487,VOF OOF Personlig assistans 59,500053,6
+1,7488,IAF BUF Syd 1 Nacksta,10988,6
+1,7490,IAF AOF Arena Servicegrupp,504535,6
+1,7492,VOF OOF GB Baldersvägen 76,370,6
+1,7494,IAF MOP HVB Stödb. Kalmarv 2,10955,6
+1,7495,VOF HTJ Anhörigcenter,9333,6
+1,7496,IAF VUX Stöd vägl adm Enh.chef,7269,6
+1,7498,VOF OOF Personlig assistans 54,500038,6
+1,7499,IAF BUF Familjerätt,10947,6
+1,7500,VOF OOF Personlig assistans 25,500053,6
+1,7501,VOF OOF SB Midälvavägen 28,4179,6
+1,7503,VOF HOS MAS o MAR,7320,6
+1,7505,VOF HTJ Liden o Kovland,9336,6
+1,7506,IAF VUX Yrkes Högskola,10935,6
+1,7507,VOF ÄB Kristinelund 3,500023,6
+1,7508,VOF OOF GB Järviksvägen 2,370,6
+1,7510,IAF BUF Ungdomsbo. stödboende,11007,6
+1,7513,VOF OOF SB Regementsvägen 10,4179,6
+1,7514,VOF HOS Korttidsboende 1,7548,6
+1,7517,VOF OOF GB Knektbacken,370,6
+1,7518,IAF BUF Nord 1 Ljustadalen,10967,6
+1,7519,VOF MYN LSS Biståndshandl.,4196,6
+1,7520,IAF AoF Verksamhetschef,7334,6
+1,7521,VOF HTJ Matfors o Attmar,9336,6
+1,7523,VOF OOF Personlig assistans 12,500053,6
+1,7524,VOF OOF GB Uttervägen 1A,370,6
+1,7525,IAF MOP Öppenvård SBC EC,11008,6
+1,7527,VOF OOF GB Kyrkogatan 28 nedre,370,6
+1,7530,VOF ÄB Skottsundsbacken 2,500029,6
+1,7532,VOF OOF Habilitering Subluna,1252,6
+1,7535,IAF AOF Nord team 1,10977,6
+1,7536,VOF Htj Stöde,9336,6
+1,7537,VOF OOF GB Norra Mårtensbacken,370,6
+1,7538,Individ o arbetsmarknadsnämnd,7352,6
+1,7539,VOF OOF KB Tivolivägen 11,4193,6
+1,7542,IAF AOF Förgr. 3 Färsta,504531,6
+1,7543,VOF ÄB Rutsgården,500027,6
+1,7544,VOF OOF Personlig assistans 16,500053,6
+1,7545,VOF OOF DV Linköpingsvägen 7,4223,6
+1,7546,VOF OOF GB Affärsgatan 20,370,6
+1,7547,IAF MOP Boende SP 3 Hammarv.,10945,6
+1,7565,BOU FSK Metropols förskola,504516,6
+1,7568,BOU FSK Skönsmons fsk,504510,6
+1,7569,KOF IOF Fritidsbanken,762,6
+1,7593,BOU SGY Arbetslag EE,500101,6
+1,7595,BOU SGY Arbetslag FT,500101,6
+1,7597,BOU SGY Arbetslag HRHOT,500095,6
+1,7598,BOU SGY Arbetslag RL,500096,6
+1,7599,BOU SGY Arbetslag  NIU,500096,6
+1,7602,BOU SGY Arbetslag IN,500101,6
+1,7603,BOU SGY Arbetslag VO,500101,6
+1,7606,BOU SGY Arbetslag IAIND,500095,6
+1,7615,VOF OOF DV Marinan,4223,6
+1,7657,VOF HOS 4,7228,6
+1,7676,KOF Stab Timavlönad,433,6
+1,7677,VOF OOF SB Bergsgatan 26,4179,6
+1,7706,IAF AOF Förgr. 4 MÅ gruppen,504532,6
+1,8371,BOU FSK Geijer förskola,504502,6
+1,8413,KSK DF Städsektionen,8411,6
+1,8545,KOF IOF Himlabad sport. teknik,761,6
+1,8548,IAF VUX Stöd vägl. antagning,10966,6
+1,8549,IAF AOF Företagsgrupp 3 EC,504531,6
+1,8552,KSK AVD HR VOF IAF,1197,6
+1,8554,IAF BUF Nord 1 Enhetschef,7413,6
+1,8557,IAF MOP Boende Soc. psyk. 3 EC,7354,6
+1,8559,IAF AoF Nord Enhetschef,7387,6
+1,8560,IAF BUF VINR EC,10985,6
+1,8562,ÖFK Överförmyndarkontor personal,48,6
+1,8563,IAF AoF Sydteam 1,10980,6
+1,8564,IAF BUF Syd 2 Enhetschef,7262,6
+1,8567,KOF IOF Himlabadet reception,761,6
+1,8569,IAF VUX Vht stöd o vaktmästeri,9330,6
+1,8572,KSK SC FOT Bilpool,811,6
+1,8574,IAF Vux Gym yrke egen Rektor,10950,6
+1,8576,IAF AOF Arenor i samverkan,504535,6
+1,8577,IAF MOP HVB Stödboende EC,7540,6
+1,8579,IAF AOF Förgr. 2 EC,504530,6
+1,8581,IAF BUF Behandl. öppenvård EC,11012,6
+1,8583,KSK AVD HR SBK KSK,1197,6
+1,8584,IAF AOF Mottagn. o. Integr. EC,7515,6
+1,8585,IAF VUX Grundl. egen och ext,10949,6
+1,8586,VOF HOS 5,7228,6
+1,8588,IAF Vux Verksamhetschef,8631,6
+1,8589,IAF BUF Familjerätt EC,7247,6
+1,8591,KSK AVD HR BOU KOF,1197,6
+1,8593,IAF VUX Rektor,1135,6
+1,8594,KOF IOF Himlabadet bad,761,6
+1,8595,KSK SC FOT Fordon stab,8546,6
+1,8597,IAF BUF Nord 2 Enhetschef,7502,6
+1,8600,IAF MOP Boende SP 2 EC,8550,6
+1,8604,IAF VUX Anp. utbild. lärling,10964,6
+1,8605,IAF AoF Syd Enhetschef,8553,6
+1,8606,IAF BUF Mottagning Socialjour,10957,6
+1,8609,IAF VUX Stöd o. vägled. Admin.,11010,6
+1,8614,IAF VUX Stödjande kurser,11004,6
+1,8615,IAF AOF Arena Enhetschef,504535,6
+1,8616,IAF MOP Individstöd Enhetschef,10961,6
+1,8622,IAF BUF Plac. BOU Nord EC,10962,6
+1,8624,IAF VUX Gymn kurser egen o ext,10948,6
+1,8625,IAF AOF Assistentgruppen,11003,6
+1,8626,IAF MOP Myndighetsutövning EC,11015,6
+1,8628,VOF HoS Rehab FT,9341,6
+1,8630,KSK SC FOT Uthyrning,811,6
+1,8632,IAF BUF Syd 1 Enhetschef,7533,6
+1,8633,IAF AOF Företagsgrupp 1 EC,504529,6
+1,8653,KSK SC FOT Transport,8620,6
+1,8722,VOF OOF GB Skolgatan 7,370,6
+1,8728,VOF OOF Personlig assistans 65,500053,6
+1,8794,KSK DF Projekt- och Specialist,8792,6
+1,8851,KSK SC ROB Bemanningsenhet,11244,6
+1,8957,VOF OOF DV Selånger,4223,6
+1,9156,BOU FSK Stöde förskola,504512,6
+1,9219,KSK SC Adm. Demokratistöd,11252,6
+1,9297,BOU FSK Vallens förskola,504514,6
+1,9436,IAF VUX GYM Lärcentrum,10990,6
+1,9459,IAF AOF Enhetschef,10986,6
+1,9464,KSK SC SMM Centralt stab,4159,6
+1,9476,IAF AOF Förgr. 4 Birsta City,504532,6
+1,9478,VOF OOF Enhetschefer,549,6
+1,9508,IAF VUX Vht. stöd Enhetschef,10942,6
+1,9523,IAF AOF Arbetsmarknad,9503,6
+1,9526,VOF MYN Verksamhetschef,500011,6
+1,9540,KSK Avd Digital Utveckling,11213,6
+1,9776,IAF MOP Öppenvård BOS,10972,6
+1,9823,VOF OOF DV Ljustadalen,4223,6
+1,9824,VOF OOF SB Söndagsvägen 8,4179,6
+1,9827,VOF ÄB Kristinelund 2,500023,6
+1,10171,IAF MOP SP Individstöd Nacksta,10968,6
+1,10886,IAF MOP Utökad grundbemanning,10940,6
+1,10891,BOU FSK Bågens förskola,504502,6
+1,10898,KOF UAD Trygghetsenheten,10896,6
+1,10901,IAF AOF Åtgärdsanst. 1,11000,6
+1,10905,KSK DF Intermittenta,11239,6
+1,10906,VOF ÄB Solhaga gemensam,500031,6
+1,10909,KSK SC LOP Lönehandläggare,11241,6
+1,10910,VOF Stab,500001,6
+1,10911,IAF Stab Bemanning,10995,6
+1,10912,VOF MYN Ledning,500011,6
+1,10914,VOF ÄB Heffnersgården 2,500020,6
+1,10915,KSK DF Tvättstugan,11251,6
+1,10916,IAF AOF Förgr. 3 Spec dagl vht,504531,6
+1,10917,IAF AOF Åtgärdsanst. 2,11000,6
+1,10919,IAF MOP Boende SP 5 EC,10172,6
+1,10920,VOF ÄB Heffnersgården 1,500020,6
+1,10921,IAF MOP Öppenvård  BOS EC,10972,6
+1,10922,KSK DF Förvaltningssektionen,10908,6
+1,10924,KSK SC LOP Extern,816,6
+1,10925,KSK Avd Strategi och styrning,11211,6
+1,10932,VOF OOF KT Bågevägen,4193,6
+1,10933,SBK MOE Marksektionen,11020,6
+1,11028,IAF AOF Arena Miljö och Fikas.,504535,6
+1,11064,IAF BUF Plac. BOU Syd EC,11065,6
+1,11066,IAF BUF Plac. BOU Syd,11065,6
+1,11193,VOF OOF Personlig assistans 70,500038,6
+1,11212,KSK Avd Produktion,11214,6
+1,11215,KSK AVD Service Desk,11214,6
+1,11271,KSK AVD Näringsliv o. tillväxt,11269,6
+1,500008,VOF HOS Trygg hemgång,500007,6
+1,500012,VOF MYN SOL Biståndshandl. utr,500010,6
+1,500042,VOF OOF Avlösare,500041,6
+1,500043,VOF OOF Kontaktpersoner LSS,500041,6
+1,500044,VOF OOF Ledsagare LSS,500041,6
+1,500045,VOF OOF Stödfamilj LSS,500041,6
+1,500047,VOF ÄB Tingsta 1,500034,6
+1,500048,VOF ÄB Tingsta 2,500034,6
+1,500061,VOF HTJ Anhörigstödplatser,9336,6
+1,500064,BOU GR Bredsands skola 2,913,6
+1,500065,BOU GR Matfors skola 2,958,6
+1,500066,BOU GR Matfors skola 3,958,6
+1,500067,BOU GR Nivrenaskolan 1,918,6
+1,500068,BOU GR Höglundaskolan 2,124,6
+1,500069,BOU GR Höglundaskolan 3,124,6
+1,500070,BOU GR Södermalms skola,504497,6
+1,500071,BOU LH Kulturskolan 2,1115,6
+1,500072,BOU GR Kyrkmons skola 2,917,6
+1,500073,BOU GR Skönsmons skola 1,935,6
+1,500074,BOU GR St Olofsskolan 2,937,6
+1,500076,BOU GR Stöde skola 2,959,6
+1,500077,BOU GR Bergsåkers skola 2,894,6
+1,500078,BOU GR Bergsåkers skola 3,894,6
+1,500079,BOU GR Österro skola,504498,6
+1,500080,BOU GR Bosvedjeskolan 2,52,6
+1,500081,BOU LH CFL 2,946,6
+1,500082,BOU GR Granbergsskolan Västra,504501,6
+1,500083,BOU GR Hagaskolan 2,783,6
+1,500084,BOU GR Hagaskolan 3,783,6
+1,500085,BOU GR Hagaskolan 4,783,6
+1,500086,BOU GR Hellbergsskolan 1,875,6
+1,500087,BOU GR Ljustadalens skola 2,780,6
+1,500088,BOU GR Ljustadalens skola 3,780,6
+1,500089,BOU GR Usland skola 2,775,6
+1,500090,BOU GR Vibackeskolan 2,776,6
+1,500091,BOU GR Vibackeskolan 3,776,6
+1,500093,BOU GR SAGA undervisningsgrupp,500092,6
+1,500097,BOU SGY Rektor HB,500096,6
+1,500100,BOU SGY Verksamhetschef GY,500099,6
+1,500102,BOU SGY Arbetslag IB school,500101,6
+1,500103,BOU SGY Rektor VM,500101,6
+1,500108,BOU SGY Rektor anpassad gy.,500095,6
+1,500109,BOU SGY Rektor Introduktion,500098,6
+1,500112,KSK AVD Destinat. o. platsutv.,11269,6
+1,500113,KSK SC SMM Timvikarier,4159,6
+1,500114,VOF MYN SOL Biståndshandl. övr,500010,6
+1,500138,IAF VUX GYM yrke extern,500137,6
+1,500143,IAF VUX Gym yrke extern Rektor,500145,6
+1,500144,IAF MOP Boende SP 4 EC,500142,6
+1,500150,KSK SC Kontaktc. Centralt stab,500149,6
+1,500152,KSK SC Kontaktcenter sektion 1,500151,6
+1,500154,KSK SC Kontaktcenter sektion 2,500153,6
+1,500155,VOF OOF Personlig ass. admin.,500037,6
+1,500164,VOF OOF Personlig assistans 11,500053,6
+1,500165,VOF ÄB Solhaga 3,500031,6
+1,500166,VOF ÄB Solhaga 4,500031,6
+1,500168,VOF ÄB Knutshemmet,500167,6
+1,500169,VOF ÄB Solgården 1,500030,6
+1,500170,VOF OOF Förstärkningsteam,549,6
+1,500173,VOF OOF DV Fäbogränd,4223,6
+1,500178,VOF OOF Personlig assistans 15,500053,6
+1,500180,BOU FSK Anundgård förskola,504514,6
+1,500370,VOF OOF Administration,549,6
+1,500373,KSK SC Verksamhet Stab,2850,6
+1,500396,VOF OOF SB Nackstavägen 18,4179,6
+1,500398,KSK AVD Drift,11214,6
+1,500402,BOU LH Lärande,500401,6
+1,500405,IAF AOF Förgr 1 Skaparverkstan,504529,6
+1,500407,VOF OOF Individstöd,500406,6
+1,500408,VOF Avd. EOA Lokalplanering,1253,6
+1,500411,VOF OOF Personlig assistans 31,500038,6
+1,500412,VOF ÄB Solgården 2,500030,6
+1,500420,KSK AVD Säkerhet och beredskap,500419,6
+1,500421,VOF OOF Natt SOO,549,6
+1,500422,VOF HOS 6,7228,6
+1,503588,VOF OOF Personlig assistans 73,500038,6
+1,503590,KSK SC LOP Drift,816,6
+1,503593,SBK GA Parksektionen,503592,6
+1,503613,VOF OOF Personlig assistans 74,500038,6
+1,503614,VOF OOF Personlig assistans 17,500053,6
+1,503615,BOU GR Hellbergsskolan 3,875,6
+1,504442,BOU FSK Bredsands öppna fsk,504510,6
+1,504481,VOF OOF Personlig assistans 87,500053,6
+1,504493,KOF UAD Skönsbergsgården,751,6
+1,504500,BOU GR Åkersviks skola,504499,6
+1,504503,BOU FSK Haga Bosvedj Skönsberg,504502,6
+1,504505,BOU FSK Sidsjö Nacksta Söderma,504504,6
+1,504507,BOU FSK Njurunda,504506,6
+1,504509,BOU FSK Alnö Ljustadalen,504508,6
+1,504511,BOU FSK Skönsmon Bredsand,504510,6
+1,504513,BOU FSK Matfors Stöde,504512,6
+1,504515,BOU FSK Kovl. Indal Liden Holm,504514,6
+1,504517,BOU FSK Bergsåker Granlo Grhlm,504516,6
+1,504518,KOF UAD Ljustadalen,747,6
+1,504519,KOF UAD Mobila teamet,747,6
+1,504533,IAF AOF Förgr. 2 Utökat grund,504530,6
+1,504534,IAF AOF Företagsgrupp 4 EC,504532,6
+1,504537,IAF AOF Kompetenscenter EC,504536,6
+1,504538,KOF UAD Indals Fritidsgård,750,6
+1,504539,IAF MOP Öppenvård SBC,11008,6
+1,504540,IAF BUF VINR Stödcentrum,10985,6
+1,504544,VOF ÄB Solhaga 5,500031,6
+1,504550,KSK AVD Enhet 1,1203,6
+1,504551,KSK AVD Enhet 2,1203,6
+1,504552,KSK AVD Enhet 3,1203,6
