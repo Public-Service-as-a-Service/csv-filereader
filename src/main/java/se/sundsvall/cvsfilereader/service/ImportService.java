@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import se.sundsvall.cvsfilereader.dto.EmployeeDTO;
@@ -21,7 +22,9 @@ import se.sundsvall.cvsfilereader.dto.OrganizationDTO;
 @Service
 public class ImportService {
 
-	private static final int BatchSize = 200;
+	@Value("${import.batch-size}")
+	private int batchSize;
+
 	private static final Logger log = LoggerFactory.getLogger(ImportService.class);
 
 	private final JdbcTemplate jdbcTemplate;
@@ -45,7 +48,7 @@ public class ImportService {
 		CsvMapper csvMapper = new CsvMapper();
 		CsvSchema schema = buildOrganizationSchema();
 
-		List<Object[]> batch = new ArrayList<>(BatchSize);
+		List<Object[]> batch = new ArrayList<>(batchSize);
 		int processed = 0;
 
 		try (BufferedReader reader = Files.newBufferedReader(orgCsv, StandardCharsets.UTF_8)) {
@@ -66,7 +69,7 @@ public class ImportService {
 
 				});
 
-				if (batch.size() >= BatchSize) {
+				if (batch.size() >= batchSize) {
 					jdbcTemplate.batchUpdate(sql, batch);
 					processed += batch.size();
 					batch.clear();
@@ -74,6 +77,10 @@ public class ImportService {
 				}
 			}
 			if (!batch.isEmpty()) {
+				batch.add(new Object[] {
+					// CompanyId,OrgId,OrgName,ParentId,TreeLevel
+					1, "UNKNOWN", "Övriga personer", 13, 2
+				});
 				jdbcTemplate.batchUpdate(sql, batch);
 				processed += batch.size();
 			}
@@ -90,12 +97,23 @@ public class ImportService {
 		String sql = """
 			INSERT INTO employees (uuid, first_name, last_name, work_mobile, work_phone, work_title, org_id, email, manager_id, manager_code, active_employee)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				ON DUPLICATE KEY UPDATE
+				    first_name      = VALUES(first_name),
+				    last_name       = VALUES(last_name),
+				    work_mobile     = VALUES(work_mobile),
+				    work_phone      = VALUES(work_phone),
+				    work_title      = VALUES(work_title),
+				    email           = VALUES(email),
+				    manager_id      = VALUES(manager_id),
+				    manager_code    = VALUES(manager_code),
+				    active_employee = VALUES(active_employee),
+				    updated_at      = CURRENT_TIMESTAMP
 			""";
 
 		CsvMapper csvMapper = new CsvMapper();
 		CsvSchema schema = buildEmployeeSchema();
 
-		List<Object[]> batch = new ArrayList<>(BatchSize);
+		List<Object[]> batch = new ArrayList<>(batchSize);
 		int processed = 0;
 
 		try (BufferedReader reader = Files.newBufferedReader(empCsv, StandardCharsets.UTF_8)) {
@@ -120,8 +138,8 @@ public class ImportService {
 					true
 				});
 
-				if (batch.size() >= BatchSize) {
-					nullOutUnknownOrgIds(batch);
+				if (batch.size() >= batchSize) {
+					determineUnknownOrgIds(batch);
 					jdbcTemplate.batchUpdate(sql, batch);
 					processed += batch.size();
 					batch.clear();
@@ -131,7 +149,7 @@ public class ImportService {
 
 			}
 			if (!batch.isEmpty()) {
-				nullOutUnknownOrgIds(batch);
+				determineUnknownOrgIds(batch);
 				jdbcTemplate.batchUpdate(sql, batch);
 				processed += batch.size();
 			}
@@ -164,13 +182,12 @@ public class ImportService {
 		return trimmed;
 	}
 
-	// gittan gav denna
-	private void nullOutUnknownOrgIds(List<Object[]> empBatch) {
-		final int ORG_ID_INDEX = 6;
-		final int EMAIL_INDEX = 7;
+	private void determineUnknownOrgIds(List<Object[]> empBatch) {
+		final int orgIdIndex = 6;
+		final int emailIndex = 7;
 
 		var orgIds = empBatch.stream()
-			.map(arr -> (String) arr[ORG_ID_INDEX])
+			.map(arr -> (String) arr[orgIdIndex])
 			.filter(s -> s != null && !s.isBlank())
 			.distinct()
 			.toList();
@@ -180,19 +197,19 @@ public class ImportService {
 
 		String inSql = "SELECT org_id FROM organizations WHERE org_id IN (" +
 			orgIds.stream().map(x -> "?")
-				.collect(java.util.stream.Collectors.joining(",")) +   // <-- comma, not semicolon
+				.collect(java.util.stream.Collectors.joining(",")) +
 			")";
 
 		var existing = new java.util.HashSet<>(
 			jdbcTemplate.queryForList(inSql, String.class, orgIds.toArray()));
 
 		for (Object[] row : empBatch) {
-			String orgId = (String) row[ORG_ID_INDEX];
+			String orgId = (String) row[orgIdIndex];
 			if (orgId != null && !orgId.isBlank() && !existing.contains(orgId)) {
-				row[ORG_ID_INDEX] = null;
+				row[orgIdIndex] = "UNKNOWN";
 
-				log.warn("[EMP] org_id '{}' not found in organizations -> inserting employee with org_id=NULL (email={})",
-					orgId, row[EMAIL_INDEX]);
+				log.warn("[EMP] org_id '{}' not found,setting to UNKNOWN for user: (email={})",
+					orgId, row[emailIndex]);
 			}
 		}
 	}

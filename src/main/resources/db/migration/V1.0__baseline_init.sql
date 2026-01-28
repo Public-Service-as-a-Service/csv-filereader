@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS employees (
   work_mobile VARCHAR(64),
   work_phone VARCHAR(64),
   work_title VARCHAR(255),
-  org_id VARCHAR(64),
+  org_id VARCHAR(64) NOT NULL,
   email VARCHAR(255),
   manager_id VARCHAR(255),
   manager_code VARCHAR(255),
@@ -39,7 +39,9 @@ CREATE TABLE IF NOT EXISTS employees (
 
   CONSTRAINT fk_employee_org FOREIGN KEY (org_id)
     REFERENCES organizations(org_id)
-    ON DELETE RESTRICT
+    ON DELETE RESTRICT,
+
+  CONSTRAINT uq_uuid_org UNIQUE(uuid, org_id)
 );
 
 
