@@ -1,4 +1,4 @@
-package se.sundsvall.cvsfilereader.dto;
+package se.sundsvall.csvfilereader.db.dto;
 
 public class OrganizationDTO {
 	public String CompanyId;

@@ -1,4 +1,4 @@
-package se.sundsvall.cvsfilereader.service;
+package se.sundsvall.csvfilereader.file;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -6,12 +6,12 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class FileService {
+@Component
+public class FileMover {
 
-	private static final Logger log = LoggerFactory.getLogger(FileService.class);
+	private static final Logger log = LoggerFactory.getLogger(FileMover.class);
 
 	public void moveOrganizationFiles(Path orgCsv, Path targetDir) {
 		try {
@@ -22,6 +22,7 @@ public class FileService {
 				targetDir.resolve(orgCsv.getFileName()),
 				StandardCopyOption.REPLACE_EXISTING);
 
+			log.info("[ORG] moving Organization file after reading");
 		} catch (IOException e) {
 			throw new IllegalStateException("Failed to move processed files", e);
 		}
@@ -36,6 +37,7 @@ public class FileService {
 				targetDir.resolve(empCsv.getFileName()),
 				StandardCopyOption.REPLACE_EXISTING);
 
+			log.info("[EMP] moving Employee file after reading");
 		} catch (IOException e) {
 			throw new IllegalStateException("Failed to move processed files", e);
 		}

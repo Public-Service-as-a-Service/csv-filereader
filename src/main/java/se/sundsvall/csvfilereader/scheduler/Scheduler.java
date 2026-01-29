@@ -1,4 +1,4 @@
-package se.sundsvall.cvsfilereader.service;
+package se.sundsvall.csvfilereader.scheduler;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -6,6 +6,9 @@ import java.nio.file.StandardCopyOption;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import se.sundsvall.csvfilereader.file.DownloadService;
+import se.sundsvall.csvfilereader.file.FileMover;
+import se.sundsvall.csvfilereader.service.CsvImportService;
 import se.sundsvall.dept44.scheduling.Dept44Scheduled;
 
 @EnableScheduling
@@ -18,8 +21,8 @@ public class Scheduler {
 	private final String empFileName;
 
 	private final DownloadService downloadService;
-	private final ImportService importService;
-	private final FileService fileService;
+	private final CsvImportService csvImportService;
+	private final FileMover fileMover;
 
 	private final Path tempDownloadDir;
 
@@ -29,8 +32,8 @@ public class Scheduler {
 		@Value("${import.org-file-name}") String orgFileName,
 		@Value("${import.emp-file-name}") String empFileName,
 		DownloadService downloadService,
-		ImportService importService,
-		FileService fileService,
+		CsvImportService csvImportService,
+		FileMover fileMover,
 
 		@Value("${import.temp-download-dir}") Path tempDownloadDir) {
 		this.incomingDir = incomingDir;
@@ -38,8 +41,8 @@ public class Scheduler {
 		this.orgFileName = orgFileName;
 		this.empFileName = empFileName;
 		this.downloadService = downloadService;
-		this.importService = importService;
-		this.fileService = fileService;
+		this.csvImportService = csvImportService;
+		this.fileMover = fileMover;
 
 		this.tempDownloadDir = tempDownloadDir;
 
@@ -64,16 +67,16 @@ public class Scheduler {
 			Files.copy(tempDownloadDir.resolve(empFileName), empCsv, StandardCopyOption.REPLACE_EXISTING);
 
 			downloadService.fetchOrgFile(orgCsv);
-			downloadService.fetchOrgFile(empCsv);
+			downloadService.fetchEmpFile(empCsv);
 
-			importService.importOrganizations(orgCsv);
-			importService.importEmployee(empCsv);
+			csvImportService.importOrganizations(orgCsv);
+			csvImportService.importEmployee(empCsv);
 
-			fileService.deletePreviouslyProcessedFile(oldOrgCsv);
-			fileService.deletePreviouslyProcessedFile(oldEmpFile);
+			fileMover.deletePreviouslyProcessedFile(oldOrgCsv);
+			fileMover.deletePreviouslyProcessedFile(oldEmpFile);
 
-			fileService.moveEmployeeFiles(empCsv, processedDir);
-			fileService.moveOrganizationFiles(orgCsv, processedDir);
+			fileMover.moveEmployeeFiles(empCsv, processedDir);
+			fileMover.moveOrganizationFiles(orgCsv, processedDir);
 
 		} catch (Exception e) {
 			throw new RuntimeException("import failed", e);

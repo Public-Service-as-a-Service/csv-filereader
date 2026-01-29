@@ -9,7 +9,7 @@
 		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>se.sundsvall</groupId>
-	<artifactId>cvs-filereader</artifactId>
+	<artifactId>csv-filereader</artifactId>
 	<version>1.0</version>
 	<name>template</name>
 	<properties />

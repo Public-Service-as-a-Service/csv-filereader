@@ -1,4 +1,4 @@
-package se.sundsvall.cvsfilereader;
+package se.sundsvall.csvfilereader;
 
 import static org.springframework.boot.SpringApplication.run;
 

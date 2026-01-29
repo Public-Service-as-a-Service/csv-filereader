@@ -1,4 +1,4 @@
-package se.sundsvall.cvsfilereader.service;
+package se.sundsvall.csvfilereader.file;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -16,11 +16,13 @@ public class DownloadService {
 	public void fetchOrgFile(Path orgCsv) {
 		// lägg till för att hämta filerna
 		verifyReadable(orgCsv, "ORG");
+		log.info("[ORG] File Downloaded");
 	}
 
 	public void fetchEmpFile(Path empCsv) {
 		// lägg till för att hämta filerna
 		verifyReadable(empCsv, "EMP");
+		log.info("[EMP] File Downloaded");
 	}
 
 	private void verifyReadable(Path path, String label) {
