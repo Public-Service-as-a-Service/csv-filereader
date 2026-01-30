@@ -36,11 +36,11 @@ public class CsvImportService {
 	public void importOrganizations(Path orgCsv) {
 
 		String sql = """
-			INSERT INTO organizations (company_id, org_id, org_name, parent_id, tree_level)
+			INSERT INTO organization (company_id, org_id, org_name, parent_org_id, tree_level)
 			VALUES (?, ?, ?, ?, ?)
 			ON DUPLICATE KEY UPDATE
 			  org_name = VALUES(org_name),
-			  parent_id = VALUES(parent_id),
+			  parent_org_id = VALUES(parent_org_id),
 			  tree_level = VALUES(tree_level)
 			""";
 
@@ -96,7 +96,7 @@ public class CsvImportService {
 	public void importEmployee(Path empCsv) {
 
 		String sql = """
-			INSERT INTO employees (uuid, first_name, last_name, work_mobile, work_phone, work_title, org_id, email, manager_id, manager_code, active_employee)
+			INSERT INTO employee (person_id, first_name, last_name, work_mobile, work_phone, work_title, org_id, email, manager_id, manager_code, active_employee)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 				ON DUPLICATE KEY UPDATE
 				    first_name      = VALUES(first_name),
@@ -196,7 +196,7 @@ public class CsvImportService {
 		if (orgIds.isEmpty())
 			return;
 
-		String inSql = "SELECT org_id FROM organizations WHERE org_id IN (" +
+		String inSql = "SELECT org_id FROM organization WHERE org_id IN (" +
 			orgIds.stream().map(x -> "?")
 				.collect(java.util.stream.Collectors.joining(",")) +
 			")";
