@@ -13,31 +13,16 @@ public class FileMover {
 
 	private static final Logger log = LoggerFactory.getLogger(FileMover.class);
 
-	public void moveOrganizationFiles(Path orgCsv, Path targetDir) {
+	public void moveFile(Path targetFile, Path targetDir) {
 		try {
 			Files.createDirectories(targetDir);
 
 			Files.move(
-				orgCsv,
-				targetDir.resolve(orgCsv.getFileName()),
+				targetFile,
+				targetDir.resolve(targetFile.getFileName()),
 				StandardCopyOption.REPLACE_EXISTING);
 
-			log.info("[ORG] moving Organization file after reading");
-		} catch (IOException e) {
-			throw new IllegalStateException("Failed to move processed files", e);
-		}
-	}
-
-	public void moveEmployeeFiles(Path empCsv, Path targetDir) {
-		try {
-			Files.createDirectories(targetDir);
-
-			Files.move(
-				empCsv,
-				targetDir.resolve(empCsv.getFileName()),
-				StandardCopyOption.REPLACE_EXISTING);
-
-			log.info("[EMP] moving Employee file after reading");
+			log.info("Moved file '{}' to '{}' after reading", targetFile, targetDir);
 		} catch (IOException e) {
 			throw new IllegalStateException("Failed to move processed files", e);
 		}
