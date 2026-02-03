@@ -16,17 +16,17 @@ import se.sundsvall.dept44.scheduling.Dept44Scheduled;
 public class Scheduler {
 
 	@Value("${import.temp-download-dir}")
-	Path tempDownloadDir;
+	private Path tempDownloadDir;
 
 	@Value("${import.incoming-dir}")
-	Path incomingDir;
+	private Path incomingDir;
 	@Value("${import.processed-dir}")
-	Path processedDir;
+	private Path processedDir;
 
 	@Value("${import.org-file-name}")
-	String orgFileName;
+	private String orgFileName;
 	@Value("${import.emp-file-name}")
-	String empFileName;
+	private String empFileName;
 
 	private final DownloadService downloadService;
 	private final CsvImportService csvImportService;
