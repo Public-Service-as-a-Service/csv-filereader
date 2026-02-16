@@ -25,7 +25,7 @@ public class DownloadService {
 		log.info("[EMP] File Downloaded");
 	}
 
-	private void verifyReadable(Path path, String label) {
+	public void verifyReadable(Path path, String label) {
 		log.info("[{}] Checking file: {}", label, path.toAbsolutePath());
 
 		if (!Files.exists(path)) {

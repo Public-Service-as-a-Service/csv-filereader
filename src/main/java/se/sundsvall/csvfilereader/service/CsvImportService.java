@@ -95,6 +95,8 @@ public class CsvImportService {
 
 	public void importEmployee(Path empCsv) {
 
+		var importStartedAt = jdbcTemplate.queryForObject("SELECT CURRENT_TIMESTAMP()", java.sql.Timestamp.class);
+
 		String sql = """
 			INSERT INTO employee (person_id, first_name, last_name, work_mobile, work_phone, work_title, org_id, email, manager_id, manager_code, active_employee)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -159,6 +161,15 @@ public class CsvImportService {
 		} catch (IOException e) {
 			throw new RuntimeException("Error Importing organization from:" + empCsv.getFileName().toAbsolutePath(), e);
 		}
+
+		int deactivated = jdbcTemplate.update("""
+			    UPDATE employee
+			    SET active_employee = false
+			    WHERE active_employee = true
+			      AND (updated_at IS NULL OR updated_at < ?)
+			""", importStartedAt);
+
+		log.info("[EMP] non updated employees set to inactive: {}", deactivated);
 
 	}
 
