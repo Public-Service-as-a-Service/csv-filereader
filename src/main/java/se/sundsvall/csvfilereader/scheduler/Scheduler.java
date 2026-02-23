@@ -6,9 +6,9 @@ import java.nio.file.StandardCopyOption;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import se.sundsvall.csvfilereader.file.DownloadService;
-import se.sundsvall.csvfilereader.file.FileMover;
-import se.sundsvall.csvfilereader.service.CsvImportService;
+import se.sundsvall.csvfilereader.file.FileManager;
+import se.sundsvall.csvfilereader.service.EmployeeImportService;
+import se.sundsvall.csvfilereader.service.OrganizationImportService;
 import se.sundsvall.dept44.scheduling.Dept44Scheduled;
 
 @EnableScheduling
@@ -17,7 +17,6 @@ public class Scheduler {
 
 	@Value("${import.temp-download-dir}")
 	private Path tempDownloadDir;
-
 	@Value("${import.incoming-dir}")
 	private Path incomingDir;
 	@Value("${import.processed-dir}")
@@ -28,17 +27,15 @@ public class Scheduler {
 	@Value("${import.emp-file-name}")
 	private String empFileName;
 
-	private final DownloadService downloadService;
-	private final CsvImportService csvImportService;
-	private final FileMover fileMover;
+	private final EmployeeImportService employeeImportService;
+	private final OrganizationImportService organizationImportService;
+	private final FileManager fileManager;
 
-	public Scheduler(
-		DownloadService downloadService,
-		CsvImportService csvImportService,
-		FileMover fileMover) {
-		this.downloadService = downloadService;
-		this.csvImportService = csvImportService;
-		this.fileMover = fileMover;
+	public Scheduler(EmployeeImportService employeeImportService, OrganizationImportService organizationImportService,
+		FileManager fileManager) {
+		this.employeeImportService = employeeImportService;
+		this.organizationImportService = organizationImportService;
+		this.fileManager = fileManager;
 	}
 
 	@Dept44Scheduled(
@@ -51,18 +48,15 @@ public class Scheduler {
 
 		Path orgCsv = incomingDir.resolve(orgFileName);
 		Path oldOrgCsv = processedDir.resolve(orgFileName);
-
 		try {
-			// Tillfälligt tills vi fakriskt laddar ner filerna
-			Files.copy(tempDownloadDir.resolve(orgFileName), orgCsv, StandardCopyOption.REPLACE_EXISTING);
 
-			downloadService.fetchOrgFile(orgCsv);
-			csvImportService.importOrganizations(orgCsv);
-			fileMover.deletePreviouslyProcessedFile(oldOrgCsv);
-			fileMover.moveFile(orgCsv, processedDir);
+			Files.copy(tempDownloadDir.resolve(orgFileName), orgCsv, StandardCopyOption.REPLACE_EXISTING);
+			organizationImportService.importOrganizations(orgCsv);
+			fileManager.deletePreviouslyProcessedFile(oldOrgCsv);
+			fileManager.moveFile(orgCsv, processedDir);
 
 		} catch (Exception e) {
-			throw new RuntimeException("[ORG]Import failed", e);
+			throw new RuntimeException("[ORG] Import failed", e);
 		}
 	}
 
@@ -73,19 +67,18 @@ public class Scheduler {
 		maximumExecutionTime = "${scheduler.scheduled-emp-import.maximum-execution-time}")
 
 	public void importEmployeesJob() {
+
 		Path empCsv = incomingDir.resolve(empFileName);
 		Path oldEmpFile = processedDir.resolve(empFileName);
 		try {
-			// Tillfälligt tills vi fakriskt laddar ner filerna
-			Files.copy(tempDownloadDir.resolve(empFileName), empCsv, StandardCopyOption.REPLACE_EXISTING);
 
-			downloadService.fetchEmpFile(empCsv);
-			csvImportService.importEmployee(empCsv);
-			fileMover.deletePreviouslyProcessedFile(oldEmpFile);
-			fileMover.moveFile(empCsv, processedDir);
+			Files.copy(tempDownloadDir.resolve(empFileName), empCsv, StandardCopyOption.REPLACE_EXISTING);
+			employeeImportService.importEmployee(empCsv);
+			fileManager.deletePreviouslyProcessedFile(oldEmpFile);
+			fileManager.moveFile(empCsv, processedDir);
 
 		} catch (Exception e) {
-			throw new RuntimeException("[EMP] Importing failed", e);
+			throw new RuntimeException("[EMP] Import failed", e);
 		}
 	}
 }
