@@ -16,81 +16,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import se.sundsvall.csvfilereader.db.dto.EmployeeDTO;
-import se.sundsvall.csvfilereader.db.dto.OrganizationDTO;
+import se.sundsvall.csvfilereader.service.utility.ImportUtil;
 
 @Service
-public class CsvImportService {
+public class EmployeeImportService {
 
-	@Value("${import.batch-size}")
+	@Value("${import.employee-batch-size}")
 	private int batchSize;
 
-	private static final Logger log = LoggerFactory.getLogger(CsvImportService.class);
+	private static final Logger log = LoggerFactory.getLogger(EmployeeImportService.class);
 
 	private final JdbcTemplate jdbcTemplate;
 
-	public CsvImportService(JdbcTemplate jdbcTemplate) {
-
+	public EmployeeImportService(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
-	}
-
-	public void importOrganizations(Path orgCsv) {
-
-		String sql = """
-			INSERT INTO organization (company_id, org_id, org_name, parent_org_id, tree_level)
-			VALUES (?, ?, ?, ?, ?)
-			ON DUPLICATE KEY UPDATE
-			  org_name = VALUES(org_name),
-			  parent_org_id = VALUES(parent_org_id),
-			  tree_level = VALUES(tree_level)
-			""";
-
-		CsvMapper csvMapper = new CsvMapper();
-		CsvSchema schema = buildOrganizationSchema();
-
-		List<Object[]> batch = new ArrayList<>(batchSize);
-		int processed = 0;
-
-		try (BufferedReader reader = Files.newBufferedReader(orgCsv, StandardCharsets.UTF_8)) {
-
-			MappingIterator<OrganizationDTO> it = csvMapper.readerFor(OrganizationDTO.class)
-				.with(schema)
-				.readValues(reader);
-			while (it.hasNext()) {
-
-				var row = it.next();
-
-				batch.add(new Object[] {
-					nullIfNullString(row.CompanyId),
-					nullIfNullString(row.OrgId),
-					nullIfNullString(row.OrgName),
-					nullIfNullString(row.ParentId),
-					nullIfNullString(row.TreeLevel),
-
-				});
-
-				if (batch.size() >= batchSize) {
-					jdbcTemplate.batchUpdate(sql, batch);
-					processed += batch.size();
-					batch.clear();
-					log.info("[ORG] upsert complete. Rows sent to DB: {}", processed);
-				}
-			}
-			if (!batch.isEmpty()) {
-				batch.add(new Object[] {
-					// CompanyId,OrgId,OrgName,ParentId,TreeLevel
-					1, "UNKNOWN", "Övriga personer", 13, 2
-				});
-				log.info("[ORG] creating organization for UNKNOWN");
-
-				jdbcTemplate.batchUpdate(sql, batch);
-				processed += batch.size();
-			}
-			log.info("[ORG] final upsert complete. Rows sent to DB: {}", processed);
-
-		} catch (IOException e) {
-			throw new RuntimeException("Error Importing organization from:" + orgCsv.getFileName().toAbsolutePath(), e);
-		}
-
 	}
 
 	public void importEmployee(Path empCsv) {
@@ -128,16 +67,16 @@ public class CsvImportService {
 				var row = it.next();
 
 				batch.add(new Object[] {
-					nullIfNullString(row.PersonId),
-					nullIfNullString(row.Givenname),
-					nullIfNullString(row.Lastname),
-					nullIfNullString(row.WorkMobile),
-					nullIfNullString(row.WorkPhone),
-					nullIfNullString(row.Title),
-					nullIfNullString(row.OrgId),
-					nullIfNullString(row.PrimaryEMailAddress),
-					nullIfNullString(row.ManagerId),
-					nullIfNullString(row.ManagerCode),
+					ImportUtil.nullIfNullString(row.PersonId),
+					ImportUtil.nullIfNullString(row.Givenname),
+					ImportUtil.nullIfNullString(row.Lastname),
+					ImportUtil.nullIfNullString(row.WorkMobile),
+					ImportUtil.nullIfNullString(row.WorkPhone),
+					ImportUtil.nullIfNullString(row.Title),
+					ImportUtil.nullIfNullString(row.OrgId),
+					ImportUtil.nullIfNullString(row.PrimaryEMailAddress),
+					ImportUtil.nullIfNullString(row.ManagerId),
+					ImportUtil.nullIfNullString(row.ManagerCode),
 					true
 				});
 
@@ -179,21 +118,6 @@ public class CsvImportService {
 			.withColumnSeparator(';');
 	}
 
-	private CsvSchema buildOrganizationSchema() {
-		return CsvSchema.emptySchema()
-			.withHeader()
-			.withColumnSeparator(',');
-	}
-
-	private static String nullIfNullString(String string) {
-		if (string == null)
-			return null;
-		String trimmed = string.trim();
-		if (trimmed.isEmpty() || trimmed.equalsIgnoreCase("NULL"))
-			return null;
-		return trimmed;
-	}
-
 	private void determineUnknownOrgIds(List<Object[]> empBatch) {
 		final int orgIdIndex = 6;
 		final int emailIndex = 7;
@@ -225,5 +149,4 @@ public class CsvImportService {
 			}
 		}
 	}
-
 }

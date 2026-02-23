@@ -1,9 +1,10 @@
 package se.sundsvall.cvsfilereader.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,10 +17,10 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.jdbc.core.JdbcTemplate;
-import se.sundsvall.csvfilereader.service.CsvImportService;
+import se.sundsvall.csvfilereader.service.OrganizationImportService;
 
 @ExtendWith(MockitoExtension.class)
-public class CsvImportServiceTest {
+public class OrganizationImportServiceTest {
 
 	@TempDir
 	Path tempDir;
@@ -27,12 +28,12 @@ public class CsvImportServiceTest {
 	@Mock
 	JdbcTemplate jdbcTemplate;
 
-	CsvImportService importService;
+	OrganizationImportService importService;
 
 	@BeforeEach
 	void setup() throws Exception {
-		importService = new CsvImportService(jdbcTemplate);
-		var field = CsvImportService.class.getDeclaredField("batchSize");
+		importService = new OrganizationImportService(jdbcTemplate);
+		var field = OrganizationImportService.class.getDeclaredField("batchSize");
 		field.setAccessible(true);
 		field.setInt(importService, 10);
 	}
@@ -60,37 +61,14 @@ public class CsvImportServiceTest {
 	}
 
 	@Test
-	void importEmployeeWithUnkownOrgTest() throws Exception {
+	void importOrganization_throwsException() throws Exception {
 		// Arrange
-		Path empCsv = tempDir.resolve("emp.csv");
-		Files.writeString(empCsv, """
-			PersonId;Givenname;Lastname;WorkMobile;WorkPhone;Title;OrgId;PrimaryEMailAddress;ManagerId;ManagerCode
-			10;förnamn;efternamn;;;Lärare;NoOrg;eva@test.com;;
-			""");
-
-		when(jdbcTemplate.queryForList(anyString(), eq(String.class), any(Object[].class)))
-			.thenReturn(List.of());
+		Path missing = tempDir.resolve("missing.csv");
 
 		// Act
-		importService.importEmployee(empCsv);
+		RuntimeException exception = assertThrows(RuntimeException.class, () -> importService.importOrganizations(missing));
 
 		// Assert
-		@SuppressWarnings("unchecked")
-		ArgumentCaptor<List<Object[]>> captor = (ArgumentCaptor<List<Object[]>>) (ArgumentCaptor<?>) ArgumentCaptor.forClass(List.class);
-
-		verify(jdbcTemplate).batchUpdate(anyString(), captor.capture());
-
-		List<Object[]> batch = captor.getValue();
-		assertEquals(1, batch.size());
-
-		Object[] row = batch.get(0);
-
-		assertEquals("10", row[0]);
-		assertEquals("förnamn", row[1]);
-		assertEquals("efternamn", row[2]);
-		assertEquals("Lärare", row[5]);
-		assertEquals("UNKNOWN", row[6]);
-		assertEquals("eva@test.com", row[7]);
-		assertEquals(true, row[10]);
+		assertTrue(exception.getMessage().startsWith("Error Importing organization from:"));
 	}
 }
