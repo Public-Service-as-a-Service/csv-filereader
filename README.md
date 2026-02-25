@@ -1,12 +1,12 @@
-# TemplateSpringBoot
+# CSV-Filereader
 
-_A concise description of what this Spring Boot microservice does._
+_A service for loading information from CSV files into database._
 
 ## Getting Started
 
 ### Prerequisites
 
-- **Java 21 or higher**
+- **Java 25 or higher**
 - **Maven**
 - **MariaDB**(if applicable)
 - **Git**
@@ -17,8 +17,8 @@ _A concise description of what this Spring Boot microservice does._
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Sundsvallskommun/YOUR-PROJECT-ID.git
-   cd YOUR-PROJECT-ID
+   git clone https://github.com/Public-Service-as-a-Service/csv-filereader.git
+   cd csv-filereader
    ```
 2. **Configure the application:**
 
@@ -46,14 +46,7 @@ _A concise description of what this Spring Boot microservice does._
 
 ## Dependencies
 
-This microservice depends on the following services:
-
-- **Service Name**
-  - **Purpose:** Brief description of what the dependent service does.
-  - **Repository:** [Link to the repository](https://github.com/Sundsvallskommun/service_name)
-  - **Setup Instructions:** Refer to its documentation for installation and configuration steps.
-
-Ensure that these services are running and properly configured before starting this microservice.
+This service has no dependencies to other microservices to run but does need the database to be initialized before start.
 
 ## API Documentation
 
@@ -96,32 +89,62 @@ Configuration is crucial for the application to run successfully. Ensure all nec
       username: your_db_username
       password: your_db_password
   ```
-- **External Service URLs:**
+- **Import Settings:**
 
   ```yaml
-  integration:
-    service:
-      url: http://dependency_service_url
-      oauth2:
-        client-id: some-client-id
-        client-secret: some-client-secret
+    import:
+      enabled: true
 
-  service:
-    oauth2:
-      token-url: http://dependecy_service_token_url
+      #file locations
+      incoming-dir: ./files/incoming
+      processed-dir: ./files/processed
+      failed-dir: ./files/failed
+      file-source-dir: ./files
+
+      #Filenmes
+      org-file-name: organization_file.csv
+      emp-file-name: employee_file.csv
+
+      #Bathcsize
+      employee-batch-size: ${EMPLOYEE_BATCH_SIZE}
+      organization-batch-size: ${ORGANIZATION_BATCH_SIZE}
   ```
+
+  - **File locations:** locations of directories in which files can be placed or found place at different stages of operation.
+  - **Filenames:** names of the files which are used.
+  - **Batchsize:** sizes of batches that are loaded into database.
+- **Scheduling Settings:**
+
+  ```yaml
+   scheduler:
+    scheduled-org-import:
+     cron: "* * * * * *"
+     name: "org-import"
+     shedlock-lock-at-most-for: "PT2H"
+     maximum-execution-time: "PT2H"
+
+    scheduled-emp-import:
+     cron: "* * * * * *"
+     name: "emp-import"
+     shedlock-lock-at-most-for: "PT2H"
+     maximum-execution-time: "PT2H"
+  ```
+
+  - **Cron:** expression of the time the task is scheduled to run on.
 
 ### Database Initialization
 
-The project is set up with [Flyway](https://github.com/flyway/flyway) for database migrations. Flyway is disabled by default so you will have to enable it to automatically populate the database schema upon application startup.
+Make sure api-service-notifier is run at least once to initialize the database to which csv-filereader is supposed to load the data into.
 
 ```yaml
 spring:
   flyway:
-    enabled: true
+    enabled: false
 ```
 
-- **No additional setup is required** for database initialization, as long as the database connection settings are correctly configured.
+- **api-service-notifier:**
+  - **Repository:** [Link to the repository](https://github.com/Public-Service-as-a-Service/api-service-notifier)
+  - **Setup Instructions:** Refer to its documentation for installation and configuration steps.
 
 ### Additional Notes
 
