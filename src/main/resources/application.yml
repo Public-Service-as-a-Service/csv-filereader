@@ -3,9 +3,9 @@ spring:
     name: template
 
   datasource:
-    url: jdbc:mariadb://localhost:3309/targetdb
-    username: target_user
-    password: target_password
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.mariadb.jdbc.Driver
 
   flyway:
@@ -24,10 +24,10 @@ import:
   enabled: true
 
   # File locations
-  incoming-dir: ./files/incoming
-  processed-dir: ./files/processed
-  failed-dir: ./files/failed
-  temp-download-dir: ./files
+  incoming-dir: /data/incoming
+  processed-dir: /data/processed
+  failed-dir: /data/failed
+  temp-download-dir: /data/temp
 
   # Expected file names
   org-file-name: OrgExport.csv
