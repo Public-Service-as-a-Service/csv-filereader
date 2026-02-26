@@ -46,7 +46,7 @@ _A service for loading information from CSV files into database._
 
 ## Dependencies
 
-This service has no dependencies to other microservices to run but does need the database to be initialized before start.
+This service has no dependencies to other microservices to run but does need the database to be initialized. Check [Database Initialization](#Database-Initialization) for further instructions.
 
 ## API Documentation
 
