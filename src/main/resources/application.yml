@@ -24,10 +24,10 @@ import:
   enabled: true
 
   # File locations
-  incoming-dir: ./files/incoming
-  processed-dir: ./files/processed
-  failed-dir: ./files/failed
-  file-source-dir: ./files
+  incoming-dir: ${INCOMING_FILE_DIRECTORY}
+  processed-dir: ${PROCESSED_FILE_DIRECTORY}
+  failed-dir: ${FAILED_FILE_DIRECTORY}
+  file-source-dir: ${FILE_SOURCE_DIRECTORY}
 
   # Expected file names
   org-file-name: OrgExport.csv
