@@ -15,8 +15,8 @@ import se.sundsvall.dept44.scheduling.Dept44Scheduled;
 @Configuration
 public class Scheduler {
 
-	@Value("${import.temp-download-dir}")
-	private Path tempDownloadDir;
+	@Value("${import.file-source-dir}")
+	private Path fileSourceDir;
 	@Value("${import.incoming-dir}")
 	private Path incomingDir;
 	@Value("${import.processed-dir}")
@@ -50,7 +50,7 @@ public class Scheduler {
 		Path oldOrgCsv = processedDir.resolve(orgFileName);
 		try {
 
-			Files.copy(tempDownloadDir.resolve(orgFileName), orgCsv, StandardCopyOption.REPLACE_EXISTING);
+			Files.copy(fileSourceDir.resolve(orgFileName), orgCsv, StandardCopyOption.REPLACE_EXISTING);
 			organizationImportService.importOrganizations(orgCsv);
 			fileManager.deletePreviouslyProcessedFile(oldOrgCsv);
 			fileManager.moveFile(orgCsv, processedDir);
@@ -72,7 +72,7 @@ public class Scheduler {
 		Path oldEmpFile = processedDir.resolve(empFileName);
 		try {
 
-			Files.copy(tempDownloadDir.resolve(empFileName), empCsv, StandardCopyOption.REPLACE_EXISTING);
+			Files.copy(fileSourceDir.resolve(empFileName), empCsv, StandardCopyOption.REPLACE_EXISTING);
 			employeeImportService.importEmployee(empCsv);
 			fileManager.deletePreviouslyProcessedFile(oldEmpFile);
 			fileManager.moveFile(empCsv, processedDir);
