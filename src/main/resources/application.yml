@@ -27,14 +27,15 @@ import:
   incoming-dir: /data/incoming
   processed-dir: /data/processed
   failed-dir: /data/failed
-  temp-download-dir: /data/temp
+  file-source-dir: /data/temp
 
   # Expected file names
   org-file-name: OrgExport.csv
   emp-file-name: EmpExport.csv
 
-  # Batch size
-  batch-size: 200
+  #Batch size
+  employee-batch-size: ${EMPLOYEE_BATCH_SIZE}
+  organization-batch-size: ${ORGANIZATION_BATCH_SIZE}
 
 scheduler:
   scheduled-org-import:

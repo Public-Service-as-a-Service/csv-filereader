@@ -7,11 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import se.sundsvall.csvfilereader.file.FileMover;
+import se.sundsvall.csvfilereader.file.FileManager;
 
-public class FileMoverTest {
+public class FileManagerTest {
 
-	private final FileMover fileMover = new FileMover();
+	private final FileManager fileManager = new FileManager();
 
 	@TempDir
 	Path tempDir;
@@ -27,7 +27,7 @@ public class FileMoverTest {
 		Path orgCsv = sourceDir.resolve("OrgExport.csv");
 		Files.writeString(orgCsv, content);
 		// Act
-		fileMover.moveFile(orgCsv, targetDir);
+		fileManager.moveFile(orgCsv, targetDir);
 		// Assert
 		Path moved = targetDir.resolve("OrgExport.csv");
 		assertTrue(Files.exists(moved), "expected file to exist");
@@ -49,7 +49,7 @@ public class FileMoverTest {
 		Path empCsv = sourceDir.resolve("EmpExport.csv");
 		Files.writeString(empCsv, content);
 		// Act
-		fileMover.moveFile(empCsv, targetDir);
+		fileManager.moveFile(empCsv, targetDir);
 		// Assert
 		Path moved = targetDir.resolve("EmpExport.csv");
 		assertTrue(Files.exists(moved), "expected file to exist");
@@ -66,7 +66,7 @@ public class FileMoverTest {
 		Files.writeString(processed, "string");
 		assertTrue(Files.exists(processed), "not deleted");
 		// Act
-		fileMover.deletePreviouslyProcessedFile(processed);
+		fileManager.deletePreviouslyProcessedFile(processed);
 		// Assert
 		assertFalse(Files.exists(processed), "expected to be deleted");
 	}
@@ -76,7 +76,7 @@ public class FileMoverTest {
 		// Arrange
 		Path missingFile = tempDir.resolve("missingFile.csv");
 		// Act
-		fileMover.deletePreviouslyProcessedFile(missingFile);
+		fileManager.deletePreviouslyProcessedFile(missingFile);
 		// Assert
 		assertFalse(Files.exists(missingFile));
 	}
@@ -93,6 +93,37 @@ public class FileMoverTest {
 		Files.writeString(processedDir, "file");
 		assertTrue(Files.isRegularFile(processedDir));
 
-		assertThrows(IllegalStateException.class, () -> fileMover.moveFile(filePath, processedDir));
+		assertThrows(IllegalStateException.class, () -> fileManager.moveFile(filePath, processedDir));
+	}
+
+	@Test
+	void verifyReadableWhenNoFileTest() {
+
+		Path missingFile = tempDir.resolve("missing.csv");
+
+		IllegalStateException exception = assertThrows(
+			IllegalStateException.class, () -> fileManager.verifyReadable(missingFile, "ORG"));
+
+		assertTrue(exception.getMessage().startsWith("File does not exist:"));
+	}
+
+	@Test
+	void verifyReadable_whenFileExists_doesNotThrow() throws Exception {
+		Path file = tempDir.resolve("OrgExport.csv");
+
+		Files.writeString(file, "string");
+
+		assertDoesNotThrow(() -> fileManager.verifyReadable(file, "ORG"));
+	}
+
+	@Test
+	void verifyReadable_throwsException() throws IOException {
+		Path directory = tempDir.resolve("directory");
+		Files.createDirectory(directory);
+
+		IllegalStateException exception = assertThrows(
+			IllegalStateException.class, () -> fileManager.verifyReadable(directory, "ORG"));
+
+		assertTrue(exception.getMessage().startsWith("Failed reading file:"));
 	}
 }

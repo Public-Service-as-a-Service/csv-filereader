@@ -4,25 +4,39 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class DownloadService {
+@Component
+public class FileManager {
 
-	private static final Logger log = LoggerFactory.getLogger(DownloadService.class);
+	private static final Logger log = LoggerFactory.getLogger(FileManager.class);
 
-	public void fetchOrgFile(Path orgCsv) {
-		// lägg till för att hämta filerna
-		verifyReadable(orgCsv, "ORG");
-		log.info("[ORG] File Downloaded");
+	public void moveFile(Path targetFile, Path targetDir) {
+		try {
+			Files.createDirectories(targetDir);
+
+			Files.move(
+				targetFile,
+				targetDir.resolve(targetFile.getFileName()),
+				StandardCopyOption.REPLACE_EXISTING);
+
+			log.info("Moved file '{}' to '{}' after reading", targetFile, targetDir);
+		} catch (IOException e) {
+			throw new IllegalStateException("Failed to move processed files", e);
+		}
 	}
 
-	public void fetchEmpFile(Path empCsv) {
-		// lägg till för att hämta filerna
-		verifyReadable(empCsv, "EMP");
-		log.info("[EMP] File Downloaded");
+	public void deletePreviouslyProcessedFile(Path processedFile) {
+		try {
+			if (Files.deleteIfExists(processedFile)) {
+				log.info("Old file deleted");
+			}
+		} catch (IOException e) {
+			throw new IllegalStateException("Failed to delete file");
+		}
 	}
 
 	public void verifyReadable(Path path, String label) {
