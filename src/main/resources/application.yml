@@ -1,6 +1,6 @@
 spring:
   application:
-    name: template
+    name: cvs-filereader
 
   datasource:
     url: ${DB_URL}
@@ -39,13 +39,13 @@ import:
 
 scheduler:
   scheduled-org-import:
-    cron: "0 */2 * * * *"
+    cron: "0 0 * * * *"
     name: "org-import"
     shedlock-lock-at-most-for: "PT2H"
     maximum-execution-time: "PT2H"
 
   scheduled-emp-import:
-    cron: "30 */2 * * * *"
+    cron: "0 0 * * * *"
     name: "emp-import"
     shedlock-lock-at-most-for: "PT2H"
     maximum-execution-time: "PT2H"
