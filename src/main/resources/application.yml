@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cvs-filereader
+    name: csv-filereader
 
   datasource:
     url: ${DB_URL}
