@@ -1,8 +1,5 @@
 package se.sundsvall.csvfilereader.service;
 
-import com.fasterxml.jackson.databind.MappingIterator;
-import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -17,6 +14,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import se.sundsvall.csvfilereader.db.dto.EmployeeDTO;
 import se.sundsvall.csvfilereader.service.utility.ImportUtil;
+import tools.jackson.databind.MappingIterator;
+import tools.jackson.dataformat.csv.CsvMapper;
+import tools.jackson.dataformat.csv.CsvSchema;
 
 @Service
 public class EmployeeImportService {
