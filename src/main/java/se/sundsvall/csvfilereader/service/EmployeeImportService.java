@@ -1,8 +1,5 @@
 package se.sundsvall.csvfilereader.service;
 
-import com.fasterxml.jackson.databind.MappingIterator;
-import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -17,6 +14,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import se.sundsvall.csvfilereader.db.dto.EmployeeDTO;
 import se.sundsvall.csvfilereader.service.utility.ImportUtil;
+import tools.jackson.databind.MappingIterator;
+import tools.jackson.dataformat.csv.CsvMapper;
+import tools.jackson.dataformat.csv.CsvSchema;
 
 @Service
 public class EmployeeImportService {
@@ -39,17 +39,17 @@ public class EmployeeImportService {
 		String sql = """
 			INSERT INTO employee (person_id, first_name, last_name, work_mobile, work_phone, work_title, org_id, email, manager_id, manager_code, active_employee)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-				ON DUPLICATE KEY UPDATE
-				    first_name      = VALUES(first_name),
-				    last_name       = VALUES(last_name),
-				    work_mobile     = VALUES(work_mobile),
-				    work_phone      = VALUES(work_phone),
-				    work_title      = VALUES(work_title),
-				    email           = VALUES(email),
-				    manager_id      = VALUES(manager_id),
-				    manager_code    = VALUES(manager_code),
-				    active_employee = VALUES(active_employee),
-				    updated_at      = CURRENT_TIMESTAMP
+			ON DUPLICATE KEY UPDATE
+			    first_name      = VALUES(first_name),
+			    last_name       = VALUES(last_name),
+			    work_mobile     = VALUES(work_mobile),
+			    work_phone      = VALUES(work_phone),
+			    work_title      = VALUES(work_title),
+			    email           = VALUES(email),
+			    manager_id      = VALUES(manager_id),
+			    manager_code    = VALUES(manager_code),
+			    active_employee = VALUES(active_employee),
+			    updated_at      = CURRENT_TIMESTAMP
 			""";
 
 		CsvMapper csvMapper = new CsvMapper();

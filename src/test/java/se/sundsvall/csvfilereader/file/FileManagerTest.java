@@ -1,13 +1,12 @@
-package se.sundsvall.cvsfilereader.file;
-
-import static org.junit.jupiter.api.Assertions.*;
+package se.sundsvall.csvfilereader.file;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import se.sundsvall.csvfilereader.file.FileManager;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FileManagerTest {
 
