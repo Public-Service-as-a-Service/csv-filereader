@@ -1,11 +1,4 @@
-package se.sundsvall.cvsfilereader.scheduler;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.verify;
-import static org.springframework.test.util.ReflectionTestUtils.setField;
+package se.sundsvall.csvfilereader.scheduler;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,9 +7,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.mockito.Mockito;
 import se.sundsvall.csvfilereader.file.FileManager;
-import se.sundsvall.csvfilereader.scheduler.Scheduler;
 import se.sundsvall.csvfilereader.service.EmployeeImportService;
 import se.sundsvall.csvfilereader.service.OrganizationImportService;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
+import static org.springframework.test.util.ReflectionTestUtils.setField;
 
 public class SchedulerTest {
 
@@ -32,20 +31,20 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path tempDownloadDir = tempDir.resolve("temp-download");
+		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(tempDownloadDir);
+		Files.createDirectories(fileSourceDir);
 		Files.createDirectories(incomingDir);
 		Files.createDirectories(processedDir);
 
 		String orgCsv = "org.csv";
 
-		Path orgCsvPath = tempDownloadDir.resolve(orgCsv);
+		Path orgCsvPath = fileSourceDir.resolve(orgCsv);
 		Files.writeString(orgCsvPath, "CompanyId,OrgId,OrgName,ParentId,TreeLevel\n1,A,Root,,0\n");
 
-		setField(scheduler, "tempDownloadDir", tempDownloadDir);
+		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "orgFileName", orgCsv);
@@ -73,20 +72,20 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path tempDownloadDir = tempDir.resolve("temp-download");
+		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(tempDownloadDir);
+		Files.createDirectories(fileSourceDir);
 		Files.createDirectories(incomingDir);
 		Files.createDirectories(processedDir);
 
 		String empCsv = "emp.csv";
 
-		Path empCsvPath = tempDownloadDir.resolve(empCsv);
+		Path empCsvPath = fileSourceDir.resolve(empCsv);
 		Files.writeString(empCsvPath, "PersonId;Givenname;Lastname;123;Alice;Andersson");
 
-		setField(scheduler, "tempDownloadDir", tempDownloadDir);
+		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "empFileName", empCsv);
@@ -112,17 +111,17 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path tempDownloadDir = tempDir.resolve("temp-download");
+		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(tempDir.resolve(tempDownloadDir));
-		Files.createDirectories(tempDir.resolve(incomingDir));
-		Files.createDirectories(tempDir.resolve(processedDir));
+		Files.createDirectories(fileSourceDir);
+		Files.createDirectories(incomingDir);
+		Files.createDirectories(processedDir);
 
-		Files.writeString(tempDir.resolve(tempDownloadDir).resolve("emp.csv"), "test");
+		Files.writeString(tempDir.resolve(fileSourceDir).resolve("emp.csv"), "test");
 
-		setField(scheduler, "tempDownloadDir", tempDownloadDir);
+		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "empFileName", "emp.csv");
@@ -142,17 +141,17 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path tempDownloadDir = tempDir.resolve("temp-download");
+		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(tempDir.resolve(tempDownloadDir));
-		Files.createDirectories(tempDir.resolve(incomingDir));
-		Files.createDirectories(tempDir.resolve(processedDir));
+		Files.createDirectories(fileSourceDir);
+		Files.createDirectories(incomingDir);
+		Files.createDirectories(processedDir);
 
-		Files.writeString(tempDir.resolve(tempDownloadDir).resolve("org.csv"), "test");
+		Files.writeString(tempDir.resolve(fileSourceDir).resolve("org.csv"), "test");
 
-		setField(scheduler, "tempDownloadDir", tempDownloadDir);
+		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "orgFileName", "org.csv");
