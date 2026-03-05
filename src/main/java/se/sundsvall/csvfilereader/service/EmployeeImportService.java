@@ -39,17 +39,17 @@ public class EmployeeImportService {
 		String sql = """
 			INSERT INTO employee (person_id, first_name, last_name, work_mobile, work_phone, work_title, org_id, email, manager_id, manager_code, active_employee)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-				ON DUPLICATE KEY UPDATE
-				    first_name      = VALUES(first_name),
-				    last_name       = VALUES(last_name),
-				    work_mobile     = VALUES(work_mobile),
-				    work_phone      = VALUES(work_phone),
-				    work_title      = VALUES(work_title),
-				    email           = VALUES(email),
-				    manager_id      = VALUES(manager_id),
-				    manager_code    = VALUES(manager_code),
-				    active_employee = VALUES(active_employee),
-				    updated_at      = CURRENT_TIMESTAMP
+			ON DUPLICATE KEY UPDATE
+			    first_name      = VALUES(first_name),
+			    last_name       = VALUES(last_name),
+			    work_mobile     = VALUES(work_mobile),
+			    work_phone      = VALUES(work_phone),
+			    work_title      = VALUES(work_title),
+			    email           = VALUES(email),
+			    manager_id      = VALUES(manager_id),
+			    manager_code    = VALUES(manager_code),
+			    active_employee = VALUES(active_employee),
+			    updated_at      = CURRENT_TIMESTAMP
 			""";
 
 		CsvMapper csvMapper = new CsvMapper();
