@@ -34,13 +34,13 @@ public class OrganizationImportService {
 	public void importOrganizations(Path orgCsv) {
 
 		String sql = """
-			INSERT INTO organization (company_id, org_id, org_name, parent_org_id, tree_level)
-			VALUES (?, ?, ?, ?, ?)
-			ON DUPLICATE KEY UPDATE
-			  org_name = VALUES(org_name),
-			  parent_org_id = VALUES(parent_org_id),
-			  tree_level = VALUES(tree_level)
-			""";
+            INSERT INTO organization (company_id, org_id, org_name, parent_org_id, tree_level)
+            VALUES (?, ?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+            org_name = VALUES(org_name),
+                parent_org_id = VALUES(parent_org_id),
+                tree_level = VALUES(tree_level)
+            """;
 
 		CsvMapper csvMapper = new CsvMapper();
 		CsvSchema schema = buildOrganizationSchema();
