@@ -2,7 +2,7 @@ package se.sundsvall.csvfilereader.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class OrganizationImportService {
 		List<Object[]> batch = new ArrayList<>(batchSize);
 		int processed = 0;
 
-		try (BufferedReader reader = Files.newBufferedReader(orgCsv, StandardCharsets.UTF_8)) {
+		try (BufferedReader reader = Files.newBufferedReader(orgCsv, Charset.forName("Windows-1252"))) {
 
 			MappingIterator<OrganizationDTO> it = csvMapper.readerFor(OrganizationDTO.class)
 				.with(schema)
@@ -94,6 +94,6 @@ public class OrganizationImportService {
 	private CsvSchema buildOrganizationSchema() {
 		return CsvSchema.emptySchema()
 			.withHeader()
-			.withColumnSeparator(',');
+			.withColumnSeparator(';');
 	}
 }

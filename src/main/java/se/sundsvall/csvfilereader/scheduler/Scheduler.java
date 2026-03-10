@@ -1,8 +1,6 @@
 package se.sundsvall.csvfilereader.scheduler;
 
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -50,7 +48,7 @@ public class Scheduler {
 		Path oldOrgCsv = processedDir.resolve(orgFileName);
 		try {
 
-			Files.copy(fileSourceDir.resolve(orgFileName), orgCsv, StandardCopyOption.REPLACE_EXISTING);
+			fileManager.downloadFile(incomingDir, orgFileName);
 			organizationImportService.importOrganizations(orgCsv);
 			fileManager.deletePreviouslyProcessedFile(oldOrgCsv);
 			fileManager.moveFile(orgCsv, processedDir);
@@ -72,7 +70,7 @@ public class Scheduler {
 		Path oldEmpFile = processedDir.resolve(empFileName);
 		try {
 
-			Files.copy(fileSourceDir.resolve(empFileName), empCsv, StandardCopyOption.REPLACE_EXISTING);
+			fileManager.downloadFile(incomingDir, empFileName);
 			employeeImportService.importEmployee(empCsv);
 			fileManager.deletePreviouslyProcessedFile(oldEmpFile);
 			fileManager.moveFile(empCsv, processedDir);

@@ -1,5 +1,6 @@
 package se.sundsvall.csvfilereader.service;
 
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -46,7 +47,7 @@ public class EmployeeImportServiceTest {
 		Files.writeString(empCsv, """
 			PersonId;Givenname;Lastname;WorkMobile;WorkPhone;Title;OrgId;PrimaryEMailAddress;ManagerId;ManagerCode
 			10;förnamn;efternamn;;;Lärare;NoOrg;eva@test.com;;
-			""");
+			""", Charset.forName("Windows-1252"));
 
 		when(jdbcTemplate.queryForList(anyString(), eq(String.class), any(Object[].class)))
 			.thenReturn(List.of());

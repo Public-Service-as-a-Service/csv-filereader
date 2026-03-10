@@ -5,14 +5,57 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import org.apache.commons.vfs2.FileSystemException;
+import org.apache.commons.vfs2.FileSystemManager;
+import org.apache.commons.vfs2.FileSystemOptions;
+import org.apache.commons.vfs2.Selectors;
+import org.apache.commons.vfs2.VFS;
+import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
+@EnableConfigurationProperties(SftpProperties.class)
 public class FileManager {
 
 	private static final Logger log = LoggerFactory.getLogger(FileManager.class);
+	SftpProperties sftpProperties;
+
+	public FileManager(SftpProperties sftpProperties) {
+		this.sftpProperties = sftpProperties;
+	}
+
+	public void downloadFile(Path dir, String fileName) {
+
+		try {
+			FileSystemManager manager = VFS.getManager();
+			FileSystemOptions options = new FileSystemOptions();
+
+			var builder = SftpFileSystemConfigBuilder.getInstance();
+			builder.setConnectTimeout(options, sftpProperties.connectTimeout());
+			builder.setSessionTimeout(options, sftpProperties.sessionTimeout());
+
+			var local = manager.resolveFile(dir.resolve(fileName).toUri().toString());
+			log.info("Starting connection");
+			var remote = manager.resolveFile(String.format("sftp://%s:%s@%s/%s",
+				sftpProperties.username(),
+				sftpProperties.password(),
+				sftpProperties.remoteHost(),
+				fileName), options);
+			log.info("trying to find file at {}", remote);
+
+			local.copyFrom(remote, Selectors.SELECT_SELF);
+			log.info("File '{}' downloaded", fileName);
+			local.close();
+			remote.close();
+			log.info("connection to sftp closed");
+
+		} catch (FileSystemException e) {
+			log.info("Error downloading file", e);
+		}
+	}
 
 	public void moveFile(Path targetFile, Path targetDir) {
 		try {

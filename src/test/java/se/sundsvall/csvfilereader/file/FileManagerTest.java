@@ -5,12 +5,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FileManagerTest {
 
-	private final FileManager fileManager = new FileManager();
+	@Mock
+	private SftpProperties sftpProperties;
+
+	@InjectMocks
+	private FileManager fileManager;
 
 	@TempDir
 	Path tempDir;

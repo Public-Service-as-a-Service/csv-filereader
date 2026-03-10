@@ -57,7 +57,6 @@ public class SchedulerTest {
 
 		assert Files.exists(expectedFile);
 
-		// and dependencies were called with correct paths
 		verify(organizationImportService).importOrganizations(expectedFile);
 		verify(fileManager).deletePreviouslyProcessedFile(expectedOldFile);
 		verify(fileManager).moveFile(expectedFile, processedDir);

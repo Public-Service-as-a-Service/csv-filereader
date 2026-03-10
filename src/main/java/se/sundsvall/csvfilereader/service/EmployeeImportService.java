@@ -2,7 +2,7 @@ package se.sundsvall.csvfilereader.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class EmployeeImportService {
 		List<Object[]> batch = new ArrayList<>(batchSize);
 		int processed = 0;
 
-		try (BufferedReader reader = Files.newBufferedReader(empCsv, StandardCharsets.UTF_8)) {
+		try (BufferedReader reader = Files.newBufferedReader(empCsv, Charset.forName("Windows-1252"))) {
 			MappingIterator<EmployeeDTO> it = csvMapper.readerFor(EmployeeDTO.class)
 				.with(schema)
 				.readValues(reader);
@@ -67,7 +67,7 @@ public class EmployeeImportService {
 				var row = it.next();
 
 				batch.add(new Object[] {
-					ImportUtil.nullIfNullString(row.PersonId),
+					cleanGuid(row.PersonId),
 					ImportUtil.nullIfNullString(row.Givenname),
 					ImportUtil.nullIfNullString(row.Lastname),
 					ImportUtil.nullIfNullString(row.WorkMobile),
@@ -75,7 +75,7 @@ public class EmployeeImportService {
 					ImportUtil.nullIfNullString(row.Title),
 					ImportUtil.nullIfNullString(row.OrgId),
 					ImportUtil.nullIfNullString(row.PrimaryEMailAddress),
-					ImportUtil.nullIfNullString(row.ManagerId),
+					cleanGuid(row.ManagerId),
 					ImportUtil.nullIfNullString(row.ManagerCode),
 					true
 				});
@@ -148,5 +148,13 @@ public class EmployeeImportService {
 					orgId, row[emailIndex]);
 			}
 		}
+	}
+
+	private String cleanGuid(String guid) {
+		guid = ImportUtil.nullIfNullString(guid);
+		if (guid == null) {
+			return null;
+		}
+		return guid.replace("{", "").replace("}", "").trim();
 	}
 }
