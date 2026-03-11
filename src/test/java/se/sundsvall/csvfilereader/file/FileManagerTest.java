@@ -28,7 +28,7 @@ public class FileManagerTest {
 	Path tempDir;
 
 	@Test
-	void downloadFileTest() throws Exception {
+	void downloadFileTest() {
 
 		Path incomingDir = tempDir.resolve("incoming");
 		String fileName = "file.csv";

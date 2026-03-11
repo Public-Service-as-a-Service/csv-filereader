@@ -6,7 +6,7 @@ import se.sundsvall.csvfilereader.file.SftpProperties;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class SftpPropertiesTest {
+class SftpPropertiesTest {
 
 	@Test
 	void PropertiesTest() {
