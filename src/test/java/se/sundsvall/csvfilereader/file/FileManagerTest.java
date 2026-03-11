@@ -3,17 +3,49 @@ package se.sundsvall.csvfilereader.file;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.io.TempDir;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class FileManagerTest {
 
-	private final FileManager fileManager = new FileManager();
+	@Mock
+	private SftpProperties sftpProperties;
+
+	@InjectMocks
+	private FileManager fileManager;
 
 	@TempDir
 	Path tempDir;
+
+	@Test
+	void downloadFileTest() {
+
+		Path incomingDir = tempDir.resolve("incoming");
+		String fileName = "file.csv";
+
+		when(sftpProperties.username()).thenReturn("username");
+		when(sftpProperties.password()).thenReturn("password");
+		when(sftpProperties.remoteHost()).thenReturn("remoteHost");
+		when(sftpProperties.connectTimeout()).thenReturn(Duration.ofSeconds(15));
+		when(sftpProperties.sessionTimeout()).thenReturn(Duration.ofSeconds(15));
+
+		fileManager.downloadFile(incomingDir, fileName);
+		verify(sftpProperties).username();
+		verify(sftpProperties).password();
+		verify(sftpProperties).remoteHost();
+		verify(sftpProperties).connectTimeout();
+		verify(sftpProperties).sessionTimeout();
+	}
 
 	@Test
 	void testMoveOrganizationFiles() throws IOException {
@@ -71,13 +103,20 @@ public class FileManagerTest {
 	}
 
 	@Test
-	void deleteProcessedFileWhenFileDoesNotExistTest() {
+	void deleteProcessedFileWhenFileDoesNotExistTest() throws IOException {
 		// Arrange
-		Path missingFile = tempDir.resolve("missingFile.csv");
+		Path dir = tempDir.resolve("dir");
+		Files.createDirectory(dir);
+
+		Files.writeString(dir.resolve("file.txt"), "test");
+
 		// Act
-		fileManager.deletePreviouslyProcessedFile(missingFile);
+		IllegalStateException ex = assertThrows(
+			IllegalStateException.class,
+			() -> fileManager.deletePreviouslyProcessedFile(dir));
+
 		// Assert
-		assertFalse(Files.exists(missingFile));
+		assertEquals("Failed to delete file", ex.getMessage());
 	}
 
 	@Test
