@@ -38,19 +38,16 @@ public class FileManager {
 			builder.setSessionTimeout(options, sftpProperties.sessionTimeout());
 
 			var local = manager.resolveFile(dir.resolve(fileName).toUri().toString());
-			log.info("Starting connection");
 			var remote = manager.resolveFile(String.format("sftp://%s:%s@%s/%s",
 				sftpProperties.username(),
 				sftpProperties.password(),
 				sftpProperties.remoteHost(),
 				fileName), options);
-			log.info("trying to find file at {}", remote);
 
 			local.copyFrom(remote, Selectors.SELECT_SELF);
 			log.info("File '{}' downloaded", fileName);
 			local.close();
 			remote.close();
-			log.info("connection to sftp closed");
 
 		} catch (FileSystemException e) {
 			log.info("Error downloading file", e);

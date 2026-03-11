@@ -155,6 +155,6 @@ public class EmployeeImportService {
 		if (guid == null) {
 			return null;
 		}
-		return guid.replace("{", "").replace("}", "").trim();
+		return guid.replaceAll("[{}]", "").trim();
 	}
 }

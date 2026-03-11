@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
@@ -41,7 +41,7 @@ public class EmployeeImportServiceTest {
 	}
 
 	@Test
-	void importEmployeeWithUnkownOrgTest() throws Exception {
+	void importEmployeeWithUnknownOrgTest() throws Exception {
 		// Arrange
 		Path empCsv = tempDir.resolve("emp.csv");
 		Files.writeString(empCsv, """
@@ -62,17 +62,17 @@ public class EmployeeImportServiceTest {
 		verify(jdbcTemplate).batchUpdate(anyString(), captor.capture());
 
 		List<Object[]> batch = captor.getValue();
-		assertEquals(1, batch.size());
+		assertThat(1).isEqualTo(batch.size());
 
 		Object[] row = batch.getFirst();
 
-		assertEquals("10", row[0]);
-		assertEquals("förnamn", row[1]);
-		assertEquals("efternamn", row[2]);
-		assertEquals("Lärare", row[5]);
-		assertEquals("UNKNOWN", row[6]);
-		assertEquals("eva@test.com", row[7]);
-		assertEquals(true, row[10]);
+		assertThat("10").isEqualTo(row[0]);
+		assertThat("förnamn").isEqualTo(row[1]);
+		assertThat("efternamn").isEqualTo(row[2]);
+		assertThat("Lärare").isEqualTo(row[5]);
+		assertThat("UNKNOWN").isEqualTo(row[6]);
+		assertThat("eva@test.com").isEqualTo(row[7]);
+		assertThat(true).isEqualTo(row[10]);
 	}
 
 	@Test
