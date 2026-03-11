@@ -30,8 +30,8 @@ import:
   file-source-dir: /data/temp
 
   # Expected file names
-  org-file-name: OrgExport.csv
-  emp-file-name: EmpExport.csv
+  org-file-name: ${ORGANIZATION_FILE_NAME}
+  emp-file-name: ${EMPLOYEE_FILE_NAME}
 
   #Batch size
   employee-batch-size: ${EMPLOYEE_BATCH_SIZE}
@@ -49,6 +49,13 @@ scheduler:
     name: "emp-import"
     shedlock-lock-at-most-for: "PT2H"
     maximum-execution-time: "PT2H"
+integration:
+  sftp:
+    username: ${SFTP_USERNAME}
+    password: ${SFTP_PASSWORD}
+    remote-host: ${SFTP_URL}
+    connect-timeout: "PT15S"
+    session-timeout: "PT15S"
 
 server:
   port: 8081

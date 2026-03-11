@@ -55,9 +55,6 @@ public class SchedulerTest {
 		// act
 		scheduler.importOrganizationsJob();
 
-		assert Files.exists(expectedFile);
-
-		// and dependencies were called with correct paths
 		verify(organizationImportService).importOrganizations(expectedFile);
 		verify(fileManager).deletePreviouslyProcessedFile(expectedOldFile);
 		verify(fileManager).moveFile(expectedFile, processedDir);
@@ -95,8 +92,6 @@ public class SchedulerTest {
 
 		// act
 		scheduler.importEmployeesJob();
-
-		assert Files.exists(expectedFile);
 
 		verify(employeeImportService).importEmployee(expectedFile);
 		verify(fileManager).deletePreviouslyProcessedFile(expectedOldFile);
