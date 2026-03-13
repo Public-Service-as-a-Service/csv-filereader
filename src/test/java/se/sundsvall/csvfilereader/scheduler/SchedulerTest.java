@@ -31,20 +31,14 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(fileSourceDir);
 		Files.createDirectories(incomingDir);
 		Files.createDirectories(processedDir);
 
 		String orgCsv = "org.csv";
 
-		Path orgCsvPath = fileSourceDir.resolve(orgCsv);
-		Files.writeString(orgCsvPath, "CompanyId,OrgId,OrgName,ParentId,TreeLevel\n1,A,Root,,0\n");
-
-		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "orgFileName", orgCsv);
@@ -69,20 +63,14 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(fileSourceDir);
 		Files.createDirectories(incomingDir);
 		Files.createDirectories(processedDir);
 
 		String empCsv = "emp.csv";
 
-		Path empCsvPath = fileSourceDir.resolve(empCsv);
-		Files.writeString(empCsvPath, "PersonId;Givenname;Lastname;123;Alice;Andersson");
-
-		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "empFileName", empCsv);
@@ -106,17 +94,12 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(fileSourceDir);
 		Files.createDirectories(incomingDir);
 		Files.createDirectories(processedDir);
 
-		Files.writeString(tempDir.resolve(fileSourceDir).resolve("emp.csv"), "test");
-
-		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "empFileName", "emp.csv");
@@ -136,17 +119,12 @@ public class SchedulerTest {
 
 		Scheduler scheduler = new Scheduler(employeeImportService, organizationImportService, fileManager);
 
-		Path fileSourceDir = tempDir.resolve("file_source");
 		Path incomingDir = tempDir.resolve("incoming");
 		Path processedDir = tempDir.resolve("processed");
 
-		Files.createDirectories(fileSourceDir);
 		Files.createDirectories(incomingDir);
 		Files.createDirectories(processedDir);
 
-		Files.writeString(tempDir.resolve(fileSourceDir).resolve("org.csv"), "test");
-
-		setField(scheduler, "fileSourceDir", fileSourceDir);
 		setField(scheduler, "incomingDir", incomingDir);
 		setField(scheduler, "processedDir", processedDir);
 		setField(scheduler, "orgFileName", "org.csv");

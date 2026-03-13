@@ -13,8 +13,6 @@ import se.sundsvall.dept44.scheduling.Dept44Scheduled;
 @Configuration
 public class Scheduler {
 
-	@Value("${import.file-source-dir}")
-	private Path fileSourceDir;
 	@Value("${import.incoming-dir}")
 	private Path incomingDir;
 	@Value("${import.processed-dir}")
