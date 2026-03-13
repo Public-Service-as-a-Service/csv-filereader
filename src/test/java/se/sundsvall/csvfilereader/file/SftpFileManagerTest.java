@@ -16,13 +16,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class FileManagerTest {
+public class SftpFileManagerTest {
 
 	@Mock
 	private SftpProperties sftpProperties;
 
 	@InjectMocks
-	private FileManager fileManager;
+	private SftpFileManager sftpFileManager;
 
 	@TempDir
 	Path tempDir;
@@ -39,7 +39,7 @@ public class FileManagerTest {
 		when(sftpProperties.connectTimeout()).thenReturn(Duration.ofSeconds(15));
 		when(sftpProperties.sessionTimeout()).thenReturn(Duration.ofSeconds(15));
 
-		fileManager.downloadFile(incomingDir, fileName);
+		sftpFileManager.downloadFile(incomingDir, fileName);
 		verify(sftpProperties).username();
 		verify(sftpProperties).password();
 		verify(sftpProperties).remoteHost();
@@ -58,7 +58,7 @@ public class FileManagerTest {
 		Path orgCsv = sourceDir.resolve("OrgExport.csv");
 		Files.writeString(orgCsv, content);
 		// Act
-		fileManager.moveFile(orgCsv, targetDir);
+		sftpFileManager.moveFile(orgCsv, targetDir);
 		// Assert
 		Path moved = targetDir.resolve("OrgExport.csv");
 		assertTrue(Files.exists(moved), "expected file to exist");
@@ -80,7 +80,7 @@ public class FileManagerTest {
 		Path empCsv = sourceDir.resolve("EmpExport.csv");
 		Files.writeString(empCsv, content);
 		// Act
-		fileManager.moveFile(empCsv, targetDir);
+		sftpFileManager.moveFile(empCsv, targetDir);
 		// Assert
 		Path moved = targetDir.resolve("EmpExport.csv");
 		assertTrue(Files.exists(moved), "expected file to exist");
@@ -97,7 +97,7 @@ public class FileManagerTest {
 		Files.writeString(processed, "string");
 		assertTrue(Files.exists(processed), "not deleted");
 		// Act
-		fileManager.deletePreviouslyProcessedFile(processed);
+		sftpFileManager.deletePreviouslyProcessedFile(processed);
 		// Assert
 		assertFalse(Files.exists(processed), "expected to be deleted");
 	}
@@ -113,7 +113,7 @@ public class FileManagerTest {
 		// Act
 		IllegalStateException ex = assertThrows(
 			IllegalStateException.class,
-			() -> fileManager.deletePreviouslyProcessedFile(dir));
+			() -> sftpFileManager.deletePreviouslyProcessedFile(dir));
 
 		// Assert
 		assertEquals("Failed to delete file", ex.getMessage());
@@ -131,7 +131,7 @@ public class FileManagerTest {
 		Files.writeString(processedDir, "file");
 		assertTrue(Files.isRegularFile(processedDir));
 
-		assertThrows(IllegalStateException.class, () -> fileManager.moveFile(filePath, processedDir));
+		assertThrows(IllegalStateException.class, () -> sftpFileManager.moveFile(filePath, processedDir));
 	}
 
 	@Test
@@ -140,7 +140,7 @@ public class FileManagerTest {
 		Path missingFile = tempDir.resolve("missing.csv");
 
 		IllegalStateException exception = assertThrows(
-			IllegalStateException.class, () -> fileManager.verifyReadable(missingFile, "ORG"));
+			IllegalStateException.class, () -> sftpFileManager.verifyReadable(missingFile, "ORG"));
 
 		assertTrue(exception.getMessage().startsWith("File does not exist:"));
 	}
@@ -151,7 +151,7 @@ public class FileManagerTest {
 
 		Files.writeString(file, "string");
 
-		assertDoesNotThrow(() -> fileManager.verifyReadable(file, "ORG"));
+		assertDoesNotThrow(() -> sftpFileManager.verifyReadable(file, "ORG"));
 	}
 
 	@Test
@@ -160,7 +160,7 @@ public class FileManagerTest {
 		Files.createDirectory(directory);
 
 		IllegalStateException exception = assertThrows(
-			IllegalStateException.class, () -> fileManager.verifyReadable(directory, "ORG"));
+			IllegalStateException.class, () -> sftpFileManager.verifyReadable(directory, "ORG"));
 
 		assertTrue(exception.getMessage().startsWith("Failed reading file:"));
 	}
